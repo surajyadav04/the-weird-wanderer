@@ -1,0 +1,127 @@
+/* ═══════════════════════════════════════════════════════════
+   About Page Styles
+   ═══════════════════════════════════════════════════════════ */
+
+.about-hero {
+  min-height: 40vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 3rem;
+}
+.about-hero__label {
+  font-family: var(--ff-mono); font-size: 0.75rem;
+  letter-spacing: 0.25em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.5rem;
+}
+.about-hero__title {
+  font-family: var(--ff-serif); font-size: clamp(3rem,8vw,7rem);
+  font-weight: 300; line-height: 1;
+}
+
+.about-content {
+  max-width: 1100px; margin: 0 auto;
+  padding: 0 clamp(2rem,5vw,4rem) 6rem;
+}
+
+/* ── Manifesto ── */
+.about-manifesto {
+  text-align: center; margin-bottom: 5rem;
+  padding: 3rem 2rem; position: relative;
+}
+.about-manifesto::before {
+  content: ''; position: absolute;
+  top: 0; left: 50%; transform: translateX(-50%);
+  width: 60px; height: 1px; background: var(--accent);
+}
+.about-manifesto__quote {
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: clamp(1.3rem,3vw,2rem);
+  line-height: 1.5; color: var(--fog);
+  max-width: 40ch; margin: 0 auto;
+}
+.about-manifesto__attr {
+  font-family: var(--ff-mono); font-size: 0.7rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent); margin-top: 1rem;
+}
+
+/* ── Body ── */
+.about-body {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3rem; margin-bottom: 5rem;
+}
+.about-heading {
+  font-family: var(--ff-mono); font-size: 0.75rem;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1.5rem;
+}
+.about-heading--center { text-align: center; }
+.about-col p {
+  font-family: var(--ff-prose); font-size: 1rem;
+  color: var(--fog); line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* ── Values ── */
+.about-values {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem; margin-bottom: 5rem;
+}
+.about-value {
+  padding: 2rem; border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: background 0.3s, border-color 0.3s;
+}
+.about-value:hover { background: var(--mist); border-color: var(--fog); }
+.about-value__num {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.15em; color: var(--accent);
+  display: block; margin-bottom: 0.8rem;
+}
+.about-value__title {
+  font-family: var(--ff-serif); font-size: 1.2rem;
+  font-weight: 400; margin-bottom: 0.6rem;
+}
+.about-value__desc {
+  font-family: var(--ff-prose); font-size: 0.9rem;
+  color: var(--fog); line-height: 1.7;
+}
+
+/* ── Team ── */
+.about-team { margin-top: 2rem; }
+.about-team__grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 2rem; margin-top: 2rem;
+}
+.about-member {
+  text-align: center; padding: 2rem;
+  border: 1px solid var(--border); border-radius: 16px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.about-member:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+}
+.about-member__avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%; margin: 0 auto 1.2rem;
+}
+.about-member__name {
+  font-family: var(--ff-serif); font-size: 1.2rem;
+  font-weight: 400;
+}
+.about-member__role {
+  font-family: var(--ff-mono); font-size: 0.6rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--accent); margin-top: 0.3rem;
+}
+.about-member__bio {
+  font-family: var(--ff-prose); font-size: 0.85rem;
+  color: var(--fog); line-height: 1.7;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 640px) {
+  .about-body { grid-template-columns: 1fr; }
+}

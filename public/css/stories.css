@@ -1,0 +1,113 @@
+/* ═══════════════════════════════════════════════════════════
+   Stories Index Styles
+   ═══════════════════════════════════════════════════════════ */
+
+.stories-hero {
+  min-height: 45vh;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  text-align: center;
+  padding: 8rem 2rem 3rem;
+  background: radial-gradient(ellipse at 50% 80%, rgba(200,169,110,0.06) 0%, transparent 60%);
+}
+.stories-hero__label {
+  font-family: var(--ff-mono);
+  font-size: 0.75rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 1.5rem;
+}
+.stories-hero__title {
+  font-family: var(--ff-serif);
+  font-size: clamp(3rem,8vw,7rem);
+  font-weight: 300; line-height: 1;
+}
+.stories-hero__sub {
+  margin-top: 1rem;
+  font-family: var(--ff-serif); font-style: italic;
+  font-size: clamp(1rem,2vw,1.4rem); color: var(--fog);
+}
+
+/* ── Category tabs ─── */
+.tabs {
+  display: flex; justify-content: center; gap: 0.5rem;
+  padding: 0 2rem 3rem; flex-wrap: wrap;
+}
+.tab {
+  font-family: var(--ff-mono);
+  font-size: 0.75rem; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.6rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 100px; color: var(--fog);
+  transition: all 0.3s var(--ease-out);
+}
+.tab:hover { color: var(--ink); border-color: var(--fog); }
+.tab.active { color: var(--paper); background: var(--accent); border-color: var(--accent); }
+
+/* ── Story cards ─── */
+.story-list {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem 6rem;
+  display: flex; flex-direction: column; gap: 1px;
+}
+.story-card {
+  display: flex; gap: 2.5rem;
+  padding: 2.5rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+.story-card:hover { background: var(--mist); }
+.story-card:first-child { border-top: 1px solid var(--border); }
+
+.story-card__left {
+  min-width: 80px; text-align: right;
+  display: flex; flex-direction: column; gap: 0.3rem;
+}
+.story-card__dispatch {
+  font-family: var(--ff-mono); font-size: 0.7rem;
+  letter-spacing: 0.1em; color: var(--accent);
+}
+.story-card__date {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  color: var(--fog);
+}
+
+.story-card__body { flex: 1; }
+.story-card__top {
+  display: flex; gap: 1rem; align-items: center;
+  margin-bottom: 0.5rem;
+}
+.story-card__cat {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--fog);
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border); border-radius: 50px;
+}
+.story-card__dest {
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.story-card__title {
+  font-family: var(--ff-serif);
+  font-size: 1.6rem; font-weight: 400; line-height: 1.2;
+  margin-bottom: 0.6rem;
+}
+.story-card__excerpt {
+  font-family: var(--ff-prose);
+  font-size: 0.95rem; color: var(--fog); line-height: 1.7;
+  max-width: 55ch;
+}
+.story-card__footer {
+  display: flex; gap: 1.5rem;
+  margin-top: 1rem;
+  font-family: var(--ff-mono); font-size: 0.65rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--fog);
+}
+
+@media (max-width: 640px) {
+  .story-card { flex-direction: column; gap: 0.8rem; }
+  .story-card__left { flex-direction: row; text-align: left; gap: 1rem; }
+}
