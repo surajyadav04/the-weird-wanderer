@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════
+   THE WEIRD WANDERER — Design System
+   Indian Travel Storytelling Portfolio
+   ═══════════════════════════════════════════ */
+
+/* ── CSS Variables ─────────────────────────── */
+:root {
+  /* Color Palette */
+  --saffron: #E8732A;
+  --saffron-light: #F2923D;
+  --saffron-glow: rgba(232, 115, 42, 0.15);
+  --sand: #F0E2D0;
+  --sand-light: #F8F2EA;
+  --sand-dark: #D4B896;
+  --indigo: #1B1464;
+  --indigo-deep: #0E0B3D;
+  --indigo-light: #2D2380;
+  --forest: #1E5631;
+  --forest-light: #2A7A44;
+  --forest-muted: rgba(30, 86, 49, 0.3);
+
+  /* Neutrals */
+  --bg: #0A0A12;
+  --bg-card: rgba(27, 20, 100, 0.08);
+  --bg-glass: rgba(10, 10, 18, 0.75);
+  --text: #F0E2D0;
+  --text-muted: rgba(240, 226, 208, 0.55);
+  --text-dim: rgba(240, 226, 208, 0.3);
+  --border: rgba(240, 226, 208, 0.08);
+  --border-hover: rgba(232, 115, 42, 0.25);
+
+  /* Typography */
+  --ff-display: 'Baloo Bhai 2', 'Noto Sans Devanagari', cursive;
+  --ff-heading: 'Mukta', 'Noto Sans Devanagari', sans-serif;
+  --ff-body: 'Hind', 'Inter', sans-serif;
+  --ff-accent: 'Noto Sans Devanagari', sans-serif;
+  --ff-mono: 'Inter', sans-serif;
+
+  /* Spacing */
+  --section-pad: clamp(4rem, 10vh, 8rem) clamp(1.5rem, 5vw, 6rem);
+  --max-width: 1280px;
+
+  /* Animation */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.45, 0, 0.55, 1);
+  --duration: 0.8s;
+}
+
+/* ── Reset ─────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+  /* Lenis handles this */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--ff-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+  font: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ── Utility Classes ───────────────────────── */
+.section {
+  padding: var(--section-pad);
+  position: relative;
+}
+
+.section__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.section__label {
+  font-family: var(--ff-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--saffron);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.section__label::before {
+  content: '';
+  width: 2rem;
+  height: 1px;
+  background: var(--saffron);
+}
+
+.section__title {
+  font-family: var(--ff-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.section__subtitle {
+  font-family: var(--ff-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: var(--text-muted);
+  max-width: 55ch;
+  line-height: 1.8;
+}
+
+/* ── Reveal Animation Base ─────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--duration) var(--ease-out),
+    transform var(--duration) var(--ease-out);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Film Grain Overlay ────────────────────── */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Scrollbar ─────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(232, 115, 42, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--saffron);
+}
+
+/* ── Selection ─────────────────────────────── */
+::selection {
+  background: rgba(232, 115, 42, 0.25);
+  color: var(--sand-light);
+}

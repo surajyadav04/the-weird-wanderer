@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhuj — Mandvi — Kutch — The Weird Wanderer</title>
+    <meta name="description"
+        content="A salt-brined dispatch from the Rann where the horizon dissolves. Five days traversing the white desert, the ancient shipyards of Mandvi, and the resilient heart of Bhuj." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="story.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/circular-gallery.css" />
+    <link rel="stylesheet" href="css/image-reveal.css" />
+    <link rel="stylesheet" href="css/trainExperience.css" />
+
+    <!-- Smooth Scroll (Lenis) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Reading progress -->
+    <div class="story-progress" id="readingProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__wordmark" aria-label="The Weird Wanderer — home">The Weird Wanderer</a>
+        <div class="nav__links">
+            <a href="index.html#journeys">Journeys</a>
+            <a href="index.html#manifesto">Manifesto</a>
+            <a href="index.html#words">Words</a>
+            <a href="index.html" class="nav__enter">← Back</a>
+            <!-- Climate Selector -->
+            <div class="nav__climate">
+                <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+                    <span class="nav__climate-label">Climate</span>
+                    <span id="climateIcon" class="nav__climate-icon">⠿</span>
+                    <span id="climateStatus" class="nav__climate-status">Clear</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Story Hero ─────────────────────────────────────────── -->
+    <header class="story-hero" aria-label="Dispatch header">
+
+        <div class="story-hero__bg" id="heroBg">
+            <div
+                style="position:absolute;inset:0;background-image: url('assets/kutch-cover.jpg'); background-size: cover; background-position: center; width:100%; height:100%; opacity: 0.6;">
+            </div>
+            <div
+                style="position:absolute;inset:0;background: linear-gradient(to bottom, transparent, #0d0c0b); width:100%; height:100%;">
+            </div>
+        </div>
+
+        <!-- Floating dust particles -->
+        <div class="story-hero__particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="story-hero__vignette" aria-hidden="true"></div>
+        <span class="story-hero__open-word" id="openWord" aria-hidden="true">कच्छ</span>
+
+        <div class="story-hero__content">
+            <span class="story-hero__label" id="heroLabel">
+                India · Gujarat · <a href="https://www.google.com/maps/search/?api=1&query=23.83,69.51" target="_blank" rel="noopener" class="coord-link">23.83° N, 69.51° E</a>
+            </span>
+            <h1 class="story-hero__title" id="heroTitle">
+                <span class="hero-word">Bhuj </span>
+                <span class="hero-word">— </span>
+                <span class="hero-word">Mandvi </span>
+                <span class="hero-word">— </span>
+                <span class="hero-word"><em>Kutch</em></span>
+            </h1>
+            <div class="story-hero__meta">
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Written by</span>
+                    <span class="story-meta__val">The Weird Wanderer</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Published</span>
+                    <span class="story-meta__val" id="publishDate">January 13, 2024</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Reading time</span>
+                    <span class="story-meta__val" id="readTime">15 minutes</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Dispatch no.</span>
+                    <span class="story-meta__val" id="dispatchNo">№ 52</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-hero__scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="story-hero__scroll-line"></div>
+        </div>
+
+        <!-- Gallery + Travelers Trigger (Stacked) -->
+        <div class="story-hero__gallery-trigger" style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-end;">
+            <button id="openTravelers" class="gallery-btn">
+                <span class="gallery-btn__icon">✦</span>
+                <span class="gallery-btn__label">Travelers</span>
+            </button>
+            <button id="openGallery" class="gallery-btn">
+                <span class="gallery-btn__icon">▤</span>
+                <span class="gallery-btn__label">View Gallery</span>
+            </button>
+        </div>
+
+    </header>
+
+    <main id="story-main" role="main" aria-label="Story content">
+
+        <section class="story-section">
+            <p class="story-p story-dropcap" data-scroll>
+                There is a silence in the Rann that doesn't just exist; it weighs. It is the silence of salt, of a
+                landscape so flat that the horizon doesn't just end, it dissolves into a white haze where the sky and
+                the earth trade places. We arrived in Bhuj when the winter sun was still sharp, carrying nothing but a
+                curiosity for the edges of India.
+            </p>
+
+            <blockquote class="story-pull" data-scroll>
+                "The Rann of Kutch is not a desert. It is a memory of an ocean that decided to leave, but forgot to take
+                its salt with it."
+            </blockquote>
+
+            <p class="story-p" data-scroll>
+                From the bustling narrow lanes of Bhuj, where the fragrance of spices and the sound of bells fill the
+                air, to the vast, shimmering expanse of the White Rann, the transition is jarring. It is a journey from
+                the crowded heart of civilization to the very periphery of existence.
+            </p>
+
+            <div class="story-image-full" style="height: 70vh; margin: 6rem 0;" data-scroll>
+                <img src="assets/kutch-cover.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                    alt="Kutch Landscapes">
+                <p class="story-caption">The silhouetted horizon of the white desert at dusk.</p>
+            </div>
+
+            <p class="story-p" data-scroll>
+                Then there was Mandvi. A town where the wooden skeletons of ships-to-be rise like prehistoric monsters
+                from the mud of the Rukmavati River. Men work with hammers and saws, building ships the same way they
+                did three hundred years ago. No blueprints, just the intuition of wood and the legacy of the sea.
+            </p>
+
+            <p class="story-p" data-scroll>
+                Bhuj - Mandvi - Kutch. It wasn't just a trip; it was a five-day immersion into a world where time feels
+                thicker. Where the salt under your feet and the wind in your face tell a story that maps can't capture.
+            </p>
+        </section>
+
+        <!-- ── Characters Section ── -->
+        <section class="story-characters">
+            <span class="story-characters__label">The Travelers</span>
+            <div id="flyingPosters" class="flying-posters-wrap"></div>
+        </section>
+
+    </main>
+
+    <aside class="story-end" id="storyEnd" aria-label="End of dispatch">
+        <div class="story-end__coords" data-scroll>
+            <a href="https://www.google.com/maps/search/?api=1&query=23.83,69.51" target="_blank" rel="noopener" class="coord-link">23.83° N · 69.51° E</a> · Kutch, Gujarat
+        </div>
+        <div class="story-end__divider" data-scroll></div>
+        <div class="story-end__next-label" data-scroll>Exploring the Rann</div>
+    </aside>
+
+    <!-- Travelers Modal (Image Reveal Hover) -->
+    <div id="travelersModal" class="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="tm-title">
+        <header class="gallery-modal__header">
+            <h2 id="tm-title" class="gallery-modal__title">Kutch Dispatch · The Travelers</h2>
+            <button id="closeTravelers" class="gallery-modal__close">✕ Close</button>
+        </header>
+
+        <main class="gallery-modal__content traveler-reveal-content">
+            <div id="flyingPosters" class="flying-posters-wrap"></div>
+        </main>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gm-title">
+        <header class="gallery-modal__header">
+            <h2 id="gm-title" class="gallery-modal__title">Kutch Dispatch · Gallery</h2>
+            <button id="closeGallery" class="gallery-modal__close">✕ Close</button>
+        </header>
+
+        <main class="gallery-modal__content">
+            <div id="mediaContainer" class="gallery-modal__media-wrap">
+                <!-- Circular Gallery injected here -->
+            </div>
+        </main>
+
+        <footer class="gallery-modal__footer">
+            <p class="gallery-modal__hint">Drag or use mouse wheel to explore the wheel</p>
+        </footer>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+            <div>
+                <div class="site-footer__wordmark-container">
+                    <span class="site-footer__wordmark">The Weird Wanderer</span>
+                    <div class="brand-meanings">
+                        <span class="meaning hindi">अजीब मुसाफ़िर</span>
+                        <span class="meaning urdu">عجیب مسافر</span>
+                        <span class="meaning english">The Weird Wanderer</span>
+                    </div>
+                </div>
+                <div class="site-footer__tagline">A journal of slow travel · Est. 2015</div>
+            </div>
+            <div></div>
+            <div>
+                <div class="label" style="margin-bottom:0.4rem;">Dispatch no.</div>
+                <div class="site-footer__coords">
+                    <a href="https://www.google.com/maps/search/?api=1&query=23.3,69.7" target="_blank" rel="noopener" class="coord-link">23.3° N · 69.7° E</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/circularGallery.js"></script>
+    <script src="js/imageReveal.js"></script>
+    <script src="main.js"></script>
+    <script src="js/flyingPosters.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="js/trainExperience.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const destId = 'kutch';
+            
+            // Travelers Modal Trigger — init FlyingPosters AFTER modal is visible
+            let fpInstance = null;
+            document.getElementById('openTravelers')?.addEventListener('click', () => {
+                const modal = document.getElementById('travelersModal');
+                modal.classList.add('is-open');
+                if (!fpInstance) {
+                    const travelers = getTravelersFor(destId);
+                    const fpContainer = document.getElementById('flyingPosters');
+                    if (fpContainer && travelers && travelers.length) {
+                        setTimeout(() => {
+                            fpInstance = new FlyingPosters(fpContainer, { items: travelers });
+                        }, 50);
+                    }
+                }
+            });
+            document.getElementById('closeTravelers')?.addEventListener('click', () => {
+                document.getElementById('travelersModal').classList.remove('is-open');
+            });
+
+            // Reading progress and parallax logic (kept same)
+            const bar = document.getElementById('readingProgress');
+            const main = document.getElementById('story-main');
+            let currentProgress = 0, targetProgress = 0;
+            if (bar && main) {
+                const updateTarget = () => {
+                    const rect = main.getBoundingClientRect();
+                    const total = main.offsetHeight - window.innerHeight;
+                    const scrolled = Math.max(0, -rect.top);
+                    targetProgress = Math.min(1, scrolled / total);
+                };
+                const lerp = (a, b, t) => a + (b - a) * t;
+                const animate = () => {
+                    currentProgress = lerp(currentProgress, targetProgress, 0.08);
+                    if (Math.abs(currentProgress - targetProgress) > 0.0001) bar.style.transform = `scaleX(${currentProgress})`;
+                    requestAnimationFrame(animate);
+                };
+                window.addEventListener('scroll', updateTarget, { passive: true });
+                updateTarget(); animate();
+            }
+            const scrollEls = document.querySelectorAll('[data-scroll]');
+            if (scrollEls.length) {
+                const revealIO = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const siblings = e.target.parentElement.querySelectorAll('[data-scroll]');
+                            let sibIdx = Array.from(siblings).indexOf(e.target);
+                            if (sibIdx < 0) sibIdx = 0;
+                            e.target.style.transitionDelay = (sibIdx * 0.08) + 's';
+                            e.target.classList.add('is-visible');
+                            revealIO.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                scrollEls.forEach(el => revealIO.observe(el));
+            }
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                const heroH = document.querySelector('.story-hero')?.offsetHeight || 600;
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > heroH) btt.classList.add('is-visible');
+                    else btt.classList.remove('is-visible');
+                }, { passive: true });
+                btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
+        })();
+
+        // ── Gallery Logic ──
+        (function() {
+            const destId = 'kutch';
+            const photos = getPhotosFor(destId);
+            const modal = document.getElementById('galleryModal');
+            const openBtn = document.getElementById('openGallery');
+            const closeBtn = document.getElementById('closeGallery');
+            const container = document.getElementById('mediaContainer');
+
+            if (!modal || !openBtn || !container) return;
+
+            // Initialize Circular Gallery
+            const gallery = new CircularGallery(container, photos);
+
+            openBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('is-open'), 10);
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('is-open');
+                setTimeout(() => modal.style.display = 'none', 600);
+                document.body.style.overflow = '';
+                gallery.stop();
+            });
+        })();
+    </script>
+    <script src="js/climate.js"></script>
+</body>
+
+</html>

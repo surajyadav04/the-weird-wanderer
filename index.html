@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Weird Wanderer — Travel Storyteller from India</title>
+  <meta name="description"
+    content="A cinematic travel storytelling portfolio — journeys across India and beyond, captured through photography, words, and soul." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The Weird Wanderer" />
+  <meta property="og:description" content="A cinematic travel storytelling portfolio from an Indian perspective." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts — Original Cinematic Selection -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Mukta:wght@400;700&family=Caveat:wght@400;700&family=Rock+Salt&family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Film grain -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="index.html" class="nav__wordmark" aria-label="The Weird Wanderer — home">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html" class="nav__active">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- ── Hero: World Map ──────────────────────────────────── -->
+  <section class="hero" aria-label="World map with active journey pins">
+
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__map"></div>
+    </div>
+
+    <!-- Decorative SVG outline world map -->
+    <svg class="hero__svg-map" aria-hidden="true" viewBox="0 0 1440 720" preserveAspectRatio="xMidYMid slice"
+      style="position:absolute;inset:0;width:100%;height:100%;opacity:0.07;pointer-events:none;">
+      <!-- Simplified continent silhouettes as outlines -->
+      <!-- Americas -->
+      <path fill="none" stroke="#c8a96e" stroke-width="0.5"
+        d="M200,180 L240,160 L270,190 L260,260 L290,310 L280,380 L250,430 L240,490 L210,520 L180,480 L170,420 L190,360 L185,300 L200,260 Z" />
+      <!-- Europe/Africa -->
+      <path fill="none" stroke="#c8a96e" stroke-width="0.5"
+        d="M620,130 L680,120 L720,140 L730,200 L710,250 L720,320 L730,400 L720,470 L700,520 L680,560 L660,520 L650,460 L640,380 L620,300 L610,230 L620,180 Z" />
+      <!-- Asia -->
+      <path fill="none" stroke="#c8a96e" stroke-width="0.5"
+        d="M800,110 L900,100 L1000,120 L1080,140 L1120,190 L1100,260 L1050,310 L1000,340 L950,380 L900,360 L860,300 L820,260 L800,200 Z" />
+      <!-- Australia -->
+      <path fill="none" stroke="#c8a96e" stroke-width="0.5"
+        d="M1060,440 L1120,430 L1160,460 L1150,510 L1110,540 L1060,520 L1040,480 Z" />
+    </svg>
+
+    <!-- Map pins -->
+    <div class="hero__pins" aria-label="Journey locations">
+      <!-- Kutch (Bhuj) -->
+      <div class="pin" role="button" tabindex="0" aria-label="Open Kutch dispatch" style="left:60%;top:42%;"
+        data-loc="Bhuj, Kutch · 23.2° N" data-title="Bhuj — Mandvi — Kutch"
+        data-open="A salt-brined dispatch from the Rann where the horizon dissolves. Five days traversing the white desert and ancient shipyards."
+        data-href="kutch.html">
+        <span class="pin__dot"></span>
+        <span class="pin__label">Kutch</span>
+      </div>
+    </div>
+
+    <!-- Pin tooltip -->
+    <div id="pinBackdrop" class="pin-backdrop" aria-hidden="true"></div>
+    <div id="pinTooltip" class="pin-tooltip" role="dialog" aria-modal="true" aria-label="Journey preview">
+      <button class="pin-tooltip__close" aria-label="Close preview">✕ close</button>
+      <div class="pin-tooltip__loc"></div>
+      <div class="pin-tooltip__title"></div>
+      <p class="pin-tooltip__open"></p>
+      <a class="pin-tooltip__link" href="#">Read the full dispatch →</a>
+    </div>
+
+    <!-- Hero content -->
+    <div class="hero__content">
+      <span class="label hero__label">A storyteller's journey from India</span>
+      <h1 class="hero__title"
+        style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: 1.5rem; margin-bottom: 3rem;">
+        <span
+          style="font-family: 'Caveat', cursive; font-size: 8rem; font-weight: 700; line-height: 0.9; transform: rotate(-3deg); color: #fff; text-shadow: 3px 5px 12px rgba(0,0,0,0.9);">Jack
+          of all trades,</span>
+        <span
+          style="font-family: 'Rock Salt', cursive; font-size: 3rem; font-weight: 700; -webkit-text-stroke: 1px var(--accent); color: var(--accent); transform: rotate(2deg) translateX(2rem); margin-top: 1.5rem; text-shadow: 2px 4px 10px rgba(0,0,0,1);">master
+          of none.</span>
+      </h1>
+      <p class="hero__sub">Cinematic dispatches from the margins — where every dusty road is a map to something deeper,
+        and the misdirections are the story.</p>
+      <a href="#journeys" class="hero__cta">
+        <span>Read the Stories</span>
+        <span>↓</span>
+      </a>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="hero__scroll-hint" aria-hidden="true">
+      <div class="hero__scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ── Opening Quote ────────────────────────────────────── -->
+  <section class="quote-section" aria-label="Opening epigram">
+    <div class="quote-section__inner">
+      <blockquote class="opening-quote">
+        "Not all those who wander are lost — but some of them are, and that is a perfectly respectable condition from
+        which to begin writing."
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ── Journeys Grid ─────────────────────────────────────── -->
+  <section class="journeys" id="journeys" aria-label="Featured journeys">
+    <header class="journeys__header">
+      <span class="label">Dispatches from the field</span>
+      <h2 class="journeys__title">Recent <em>Journeys</em></h2>
+      <p class="journeys__sub">Each dispatch is a long-form essay written from inside the place, not after it.</p>
+    </header>
+
+    <div class="journeys__grid" role="list">
+
+      <!-- Featured — Kutch (new) -->
+      <article class="card card--large card--kutch" role="listitem">
+        <a href="kutch.html" class="card__link" aria-label="Read Bhuj - Mandvi - Kutch journey">
+          <div class="card__image-wrap">
+            <div class="card__image card__image--kutch"
+              style="background-image: url('assets/kutch-cover.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+            </div>
+            <!-- Smooth cinematic blend overlay -->
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--bg) 100%), linear-gradient(to bottom, transparent 60%, var(--bg) 100%), linear-gradient(to top, transparent 80%, var(--bg) 100%), linear-gradient(to left, transparent 80%, var(--bg) 100%); pointer-events: none; border-radius: 8px; z-index: 2;">
+            </div>
+            <div class="card__flare card__flare--warm" style="z-index: 3;"></div>
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="label">India · Gujarat</span>
+              <span>Jan 2024</span>
+            </div>
+            <h3 class="card__title card__title--kutch">Bhuj — Mandvi — Kutch</h3>
+            <p class="card__open">A salt-brined dispatch from the Rann where the horizon dissolves. Five days traversing
+              the white desert, the ancient shipyards of Mandvi, and the resilient heart of Bhuj.</p>
+            <div class="card__footer">
+              <span class="card__read">Jan 9 – 13, 2024</span>
+              <span class="card__arrow">Read dispatch →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+      
+      <!-- Tikona Fort (new) -->
+      <article class="card card--large card--tikona" role="listitem">
+        <a href="tikona.html" class="card__link" aria-label="Read The Pyramid of Maval journey">
+          <div class="card__image-wrap">
+            <div class="card__image card__image--tikona"
+              style="background-image: url('assets/tikona-cover.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+            </div>
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--bg) 100%), linear-gradient(to bottom, transparent 60%, var(--bg) 100%), linear-gradient(to top, transparent 80%, var(--bg) 100%), linear-gradient(to left, transparent 80%, var(--bg) 100%); pointer-events: none; border-radius: 8px; z-index: 2;">
+            </div>
+            <div class="card__flare card__flare--forest" style="z-index: 3;"></div>
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="label">India · Maharashtra</span>
+              <span>Nov 2025</span>
+            </div>
+            <h3 class="card__title card__title--tikona">The Pyramid of Maval</h3>
+            <p class="card__open">Ascending the near-vertical stone steps of Vitandgad to witness the Pawana valley draped in morning mist. A trek into the Maratha heartland.</p>
+            <div class="card__footer">
+              <span class="card__read">Nov 29, 2025</span>
+              <span class="card__arrow">Read dispatch →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Barmer (new) -->
+      <article class="card card--barmer" role="listitem">
+        <a href="barmer.html" class="card__link" aria-label="Read The Sands of Time — Barmer journey">
+          <div class="card__image-wrap">
+            <div class="card__image card__image--barmer"
+              style="background-image: url('assets/barmer-cover.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+            </div>
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--bg) 100%), linear-gradient(to bottom, transparent 60%, var(--bg) 100%), linear-gradient(to top, transparent 80%, var(--bg) 100%), linear-gradient(to left, transparent 80%, var(--bg) 100%); pointer-events: none; border-radius: 8px; z-index: 2;">
+            </div>
+            <div class="card__flare card__flare--sand" style="z-index: 3;"></div>
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="label">India · Rajasthan</span>
+              <span>Feb 2025</span>
+            </div>
+            <h3 class="card__title card__title--barmer">The Sands of Time</h3>
+            <p class="card__open">Drifting through the ancient corridors of Kiradu and the shifting dunes of the deep Thar. A journey into the desert's soul.</p>
+            <div class="card__footer">
+              <span class="card__read">Feb 2 – 5, 2025</span>
+              <span class="card__arrow">Read dispatch →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+      <!-- Harishchandragad (new) -->
+      <article class="card card--large card--harish" role="listitem">
+        <a href="harishchandragad.html" class="card__link" aria-label="Read The Citadel of Ancient Spirits journey">
+          <div class="card__image-wrap">
+            <div class="card__image card__image--harish"
+              style="background-image: url('assets/harishchandragad-cover.jpg'); background-size: cover; background-position: center; border-radius: 8px;">
+            </div>
+            <div
+              style="position: absolute; inset: 0; background: linear-gradient(to right, transparent 60%, var(--bg) 100%), linear-gradient(to bottom, transparent 60%, var(--bg) 100%), linear-gradient(to top, transparent 80%, var(--bg) 100%), linear-gradient(to left, transparent 80%, var(--bg) 100%); pointer-events: none; border-radius: 8px; z-index: 2;">
+            </div>
+            <div class="card__flare card__flare--mist" style="z-index: 3; background: radial-gradient(circle at 70% 30%, rgba(200, 220, 255, 0.15), transparent 60%);"></div>
+          </div>
+          <div class="card__body">
+            <div class="card__meta">
+              <span class="label">India · Maharashtra</span>
+              <span>June 2025</span>
+            </div>
+            <h3 class="card__title card__title--harish">The Citadel of Ancient Spirits</h3>
+            <p class="card__open">Witnessing the vertical cloud burst at the legendary Konkan Kada and the mysteries of Kedareshwar. A trek into the heart of the Sahyadris.</p>
+            <div class="card__footer">
+              <span class="card__read">June 15 – 16, 2025</span>
+              <span class="card__arrow">Read dispatch →</span>
+            </div>
+          </div>
+        </a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── Manifesto ──────────────────────────────────────────── -->
+  <section class="manifesto" id="manifesto" aria-labelledby="manifesto-heading">
+    <div class="manifesto__inner">
+      <span class="label">Why I wander</span>
+      <div class="manifesto__text" role="presentation">
+        <p>I write about travel the way others don't.</p>
+        <p>Not the five-star reviews. Not the bucket lists. Not the "must-see" monuments.</p>
+        <p>I write about the afternoon that had nothing in it but a cup of chai. The conversation with a stranger that
+          went nowhere. The unnamed street that stays with you for years.</p>
+        <p>I believe that a place reveals itself only when you stop trying to conquer it — and that the true journey
+          begins when you are finally lost.</p>
+      </div>
+      <a href="#journeys" class="manifesto__cta">Read the stories</a>
+    </div>
+
+    <div class="manifesto__stats" aria-label="Journal statistics">
+      <div class="stat">
+        <span class="stat__num">1</span>
+        <span class="stat__label">Country</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num">4</span>
+        <span class="stat__label">Dispatches published</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num">5k+</span>
+        <span class="stat__label">Words in the archive</span>
+      </div>
+      <div class="stat">
+        <span class="stat__num">1</span>
+        <span class="stat__label">Year running</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Untranslatable Words ────────────────────────────────── -->
+  <section class="untranslatable" id="words" aria-labelledby="words-heading">
+    <div class="untranslatable__inner">
+      <span class="label">The lexicon of Safar</span>
+      <h2 class="untranslatable__title" id="words-heading">Words that have</h2>
+      <h2 class="untranslatable__title"
+        style="font-style:italic;color:var(--accent);margin-top:-1.3rem;margin-bottom:2rem;">no translation</h2>
+
+      <div class="word-cards" role="list">
+
+        <div class="word-card" role="listitem">
+          <span class="word-card__foreign" aria-hidden="true">जुगाड़</span>
+          <div class="word-card__name">Jugaad</div>
+          <div class="word-card__lang">Hindi</div>
+          <p class="word-card__def">The art of innovative problem-solving with limited resources. A creative "hack" or a
+            way of making things work when everything seems broken on the road.</p>
+        </div>
+
+        <div class="word-card" role="listitem">
+          <span class="word-card__foreign" aria-hidden="true">यात्रा</span>
+          <div class="word-card__name">The Weird Wanderer</div>
+          <div class="word-card__lang">Sanskrit</div>
+          <p class="word-card__def">A journey, especially a pilgrimage. To travel not just for the destination, but for
+            the spiritual growth and self-discovery found on the path.</p>
+        </div>
+
+        <div class="word-card" role="listitem">
+          <span class="word-card__foreign" aria-hidden="true">सफर</span>
+          <div class="word-card__name">Safar</div>
+          <div class="word-card__lang">Urdu</div>
+          <p class="word-card__def">A journey or transition. It implies the act of moving from one state of being to
+            another, where the traveler is forever changed by the distance covered.</p>
+        </div>
+
+        <div class="word-card" role="listitem">
+          <span class="word-card__foreign" aria-hidden="true">धुन्न</span>
+          <div class="word-card__name">Dhunn</div>
+          <div class="word-card__lang">Hindi</div>
+          <p class="word-card__def">A single-minded obsession or a soulful melody. The rhythm of the road that settles
+            in your heart, drowning out the noise of the ordinary world.</p>
+        </div>
+
+        <div class="word-card" role="listitem">
+          <span class="word-card__foreign" aria-hidden="true">रूहानी</span>
+          <div class="word-card__name">Ruhani</div>
+          <div class="word-card__lang">Urdu</div>
+          <p class="word-card__def">Spiritual or soulful. A quality that touches the very essence of your being — a
+            place or a moment that feels divinely inspired.</p>
+        </div>
+
+        <div class="word-card" role="listitem">
+          <span class="word-card__foreign" aria-hidden="true">अतिथि</span>
+          <div class="word-card__name">Atithi</div>
+          <div class="word-card__lang">Sanskrit</div>
+          <p class="word-card__def">Literally translated as 'one without a fixed date'. A guest who arrives unannounced,
+            treated with the reverence of a god on the journey.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="site-footer__inner">
+      <div>
+        <div class="site-footer__wordmark-container">
+          <span class="site-footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <div class="site-footer__tagline">A storyteller's journal from India · Est. 2023</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="subscribe-wrapper">
+          <div class="social-dock">
+            <a href="https://www.instagram.com/okweirdoo?igsh=MWw3OXB6Z2hmajVyaQ==" target="_blank" class="social-item" aria-label="Follow me on Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+              <span class="social-label">@okweirdoo</span>
+            </a>
+            <a href="https://www.linkedin.com/in/aditya-kumar-b15485259" target="_blank" class="social-item" aria-label="Follow me on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+              <span class="social-label">Aditya Kumar</span>
+            </a>
+            <a href="https://x.com" target="_blank" class="social-item" aria-label="Follow me on X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="social-icon"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>
+              <span class="social-label">@weirdwanderer</span>
+            </a>
+            <a href="https://github.com" target="_blank" class="social-item" aria-label="Follow me on GitHub">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="social-icon"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              <span class="social-label">weirdwanderer</span>
+            </a>
+          </div>
+          <a href="#" class="subscribe-link">CONNECT WITH ME</a>
+        </div>
+      </div>
+      <div>
+        <div class="label" style="margin-bottom:0.4rem;">Current position</div>
+        <div class="site-footer__coords">Bhuj, Kutch</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="main.js"></script>
+  <script src="js/climate.js"></script>
+</body>
+
+</html>

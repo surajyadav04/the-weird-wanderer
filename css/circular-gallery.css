@@ -1,0 +1,170 @@
+/* ═══════════════════════════════════════════════════════════
+   Circular Gallery — 3D Wheel Implementation
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --cg-item-width: 320px;
+  --cg-item-height: 450px;
+  --cg-depth: 700px;
+  --cg-transition: 1s cubic-bezier(0.19, 1, 0.22, 1);
+  --cg-accent: #c8a96e;
+}
+
+.circular-gallery {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 2500px;
+  overflow: hidden;
+  touch-action: none;
+  background: radial-gradient(circle at center, rgba(30, 30, 30, 0.4) 0%, transparent 70%);
+}
+
+.circular-gallery__wheel {
+  position: relative;
+  width: var(--cg-item-width);
+  height: var(--cg-item-height);
+  transform-style: preserve-3d;
+  transition: transform var(--cg-transition);
+  will-change: transform;
+}
+
+.circular-gallery__item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: all var(--cg-transition);
+  cursor: pointer;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.circular-gallery__item img, 
+.circular-gallery__item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  transition: transform 1.5s var(--cg-transition);
+}
+
+.circular-gallery__item.is-active img,
+.circular-gallery__item.is-active video {
+  transform: scale(1.05);
+}
+
+.circular-gallery__item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0, 0, 0, 0.9));
+  opacity: 0.7;
+  transition: opacity 0.5s;
+}
+
+.circular-gallery__item:hover::after {
+  opacity: 0.4;
+}
+
+.circular-gallery__item-title {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #fff;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s var(--cg-transition);
+  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.circular-gallery__item.is-active .circular-gallery__item-title {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Depth & Focus Effects */
+.circular-gallery__item:not(.is-active) {
+  filter: grayscale(0.4) brightness(0.4) blur(1px);
+  opacity: 0.6;
+}
+
+.circular-gallery__item.is-active {
+  filter: none;
+  opacity: 1;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(200, 169, 110, 0.15);
+  z-index: 10;
+}
+
+/* Navigation Indicators */
+.circular-gallery__indicators {
+  position: absolute;
+  bottom: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.circular-gallery__dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.4s var(--cg-transition);
+  cursor: pointer;
+}
+
+.circular-gallery__dot.active {
+  background: var(--cg-accent);
+  transform: scale(2);
+  box-shadow: 0 0 15px var(--cg-accent);
+}
+
+.circular-gallery__hint {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+.is-dragging .circular-gallery__wheel {
+  transition: transform 0.1s linear !important;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --cg-item-width: 260px;
+    --cg-item-height: 380px;
+    --cg-depth: 500px;
+  }
+}

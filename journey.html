@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Journey — The Weird Wanderer</title>
+  <meta name="description"
+    content="A cinematic scroll through six of the world's most untouched places. Morocco, Iceland, Kyoto, Patagonia, Rajasthan, Norway — told through light, shadow and the written word.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/journey.css">
+</head>
+
+<body>
+
+  <!-- ═══ NAV ════════════════════════════════════════════════ -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="journey.html" class="nav__active">The Journey</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- ═══ READING PROGRESS ═══════════════════════════════════ -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- ═══ OPENING TITLE SCREEN ═══════════════════════════════ -->
+  <section class="title-screen" id="titleScreen">
+    <div class="title-screen__bg"></div>
+    <div class="title-screen__noise"></div>
+    <div class="title-screen__inner">
+      <p class="title-screen__label">A cinematic journey</p>
+      <h1 class="title-screen__heading">
+        <span class="title-word" data-word="Six">Six</span>
+        <span class="title-word" data-word="Places">Places</span><br>
+        <span class="title-word title-word--italic" data-word="That Changed Us">That Changed Us</span>
+      </h1>
+      <p class="title-screen__sub">Scroll to begin</p>
+      <div class="title-screen__scroll-hint">
+        <span></span>
+      </div>
+    </div>
+    <div class="title-screen__overlay"></div>
+  </section>
+
+  <!-- ═══ CHAPTER 1 — MOROCCO ════════════════════════════════ -->
+  <section class="chapter" id="ch-morocco" data-chapter="1" data-dest="morocco">
+    <div class="chapter__parallax-wrap">
+      <div class="chapter__parallax-img" style="background-image: url('assets/sahara.png')"></div>
+      <div class="chapter__img-veil"></div>
+    </div>
+    <div class="chapter__caption-block">
+      <p class="chapter__region">Africa · Morocco</p>
+      <p class="chapter__coords">31.6°N, 8.0°W</p>
+    </div>
+    <div class="chapter__reveal-mask">
+      <div class="chapter__text-panel glass">
+        <p class="chapter__number">01</p>
+        <h2 class="chapter__title">The Alley That Had No Name</h2>
+        <p class="chapter__body">
+          Somewhere between the tanneries and the mosque, every cardinal direction dissolved. There were only turns —
+          and the scent of cumin rising from unseen kitchens. Marrakech does not reveal itself to the hurried. It
+          requires a willingness to be lost.
+        </p>
+        <p class="chapter__body chapter__body--indent">
+          The medina's geometry is not maze-like by accident. For centuries it has been the architecture of privacy,
+          community, and shade — a city shaped by the logic of the afternoon sun and the desire to disappear.
+        </p>
+        <div class="chapter__byline">
+          <span class="chapter__author">The Weird Wanderer</span>
+          <span class="chapter__dispatch">Dispatch № 47 · Nov 2025</span>
+        </div>
+        <a href="marrakech.html" class="chapter__link">Read the full dispatch →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTERLUDE QUOTE 1 ═══════════════════════════════════ -->
+  <div class="interlude" id="q1">
+    <div class="interlude__line"></div>
+    <blockquote class="interlude__quote">
+      "The world is a book, and those who do not travel read only one page."
+      <cite>– Saint Augustine</cite>
+    </blockquote>
+    <div class="interlude__line"></div>
+  </div>
+
+  <!-- ═══ CHAPTER 2 — ICELAND ════════════════════════════════ -->
+  <section class="chapter chapter--flip" id="ch-iceland" data-chapter="2" data-dest="iceland">
+    <div class="chapter__parallax-wrap">
+      <div class="chapter__parallax-img" style="background-image: url('assets/iceland.png')"></div>
+      <div class="chapter__img-veil"></div>
+    </div>
+    <div class="chapter__caption-block">
+      <p class="chapter__region">Europe · Iceland</p>
+      <p class="chapter__coords">64.1°N, 21.9°W</p>
+    </div>
+    <div class="chapter__reveal-mask">
+      <div class="chapter__text-panel glass">
+        <p class="chapter__number">02</p>
+        <h2 class="chapter__title">A Silence That Could Freeze</h2>
+        <p class="chapter__body">
+          The glacier spoke in creaks and cracks — a vocabulary older than any human language, indifferent to the
+          listener. Standing on Vatnajökull, the largest glacier in Europe, you understand that the Earth is not your
+          home. You are merely a guest. A brief one.
+        </p>
+        <p class="chapter__body chapter__body--indent">
+          At midnight in July, the sun merely grazed the horizon before rising again. We had no darkness to retreat
+          into. Only light — and the blue-white world that swallowed everything.
+        </p>
+        <div class="chapter__byline">
+          <span class="chapter__author">The Weird Wanderer</span>
+          <span class="chapter__dispatch">Dispatch № 44 · Oct 2025</span>
+        </div>
+        <!-- Full dispatch coming soon -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CHAPTER 3 — KYOTO (FULL WIDTH) ════════════════════ -->
+  <section class="chapter chapter--cinematic" id="ch-kyoto" data-chapter="3" data-dest="kyoto">
+    <div class="chapter__parallax-wrap chapter__parallax-wrap--full">
+      <div class="chapter__parallax-img" style="background-image: url('assets/kyoto.png')"></div>
+      <div class="chapter__img-veil chapter__img-veil--heavy"></div>
+    </div>
+    <div class="chapter__cinematic-text">
+      <p class="chapter__region">Asia · Japan</p>
+      <p class="chapter__number">03</p>
+      <h2 class="chapter__title chapter__title--big">Bamboo and the Art of Listening</h2>
+      <p class="chapter__body chapter__body--centered">
+        Arashiyama's bamboo grove makes a sound like no other forest on Earth — a hollow, woody whisper that comes from
+        every direction at once, as if the grove itself were breathing.
+      </p>
+      <!-- Full dispatch coming soon -->
+    </div>
+  </section>
+
+  <!-- ═══ INTERLUDE — STATS ═══════════════════════════════════ -->
+  <div class="interlude interlude--stats" id="statsBlock">
+    <div class="journey-stat" data-num="6">
+      <span class="journey-stat__num">6</span>
+      <span class="journey-stat__label">Destinations</span>
+    </div>
+    <div class="journey-stat" data-num="14">
+      <span class="journey-stat__num">14</span>
+      <span class="journey-stat__label">Dispatches</span>
+    </div>
+    <div class="journey-stat" data-num="48">
+      <span class="journey-stat__num">48</span>
+      <span class="journey-stat__label">Countries visited</span>
+    </div>
+    <div class="journey-stat" data-num="1">
+      <span class="journey-stat__num">1</span>
+      <span class="journey-stat__label">Storyteller</span>
+    </div>
+  </div>
+
+  <!-- ═══ CHAPTER 4 — PATAGONIA ══════════════════════════════ -->
+  <section class="chapter" id="ch-patagonia" data-chapter="4" data-dest="patagonia">
+    <div class="chapter__parallax-wrap">
+      <div class="chapter__parallax-img" style="background-image: url('assets/patagonia.png')"></div>
+      <div class="chapter__img-veil"></div>
+    </div>
+    <div class="chapter__caption-block">
+      <p class="chapter__region">South America · Argentina & Chile</p>
+      <p class="chapter__coords">50.0°S, 73.0°W</p>
+    </div>
+    <div class="chapter__reveal-mask">
+      <div class="chapter__text-panel glass">
+        <p class="chapter__number">04</p>
+        <h2 class="chapter__title">Wind as a Language</h2>
+        <p class="chapter__body">
+          There is a Patagonian word for the horizontal rain that slaps your face and turns your jacket into a sail. I
+          learned it the hard way, on the third day of the Torres del Paine circuit, somewhere between the French Valley
+          and a glacier that had no patience for tourists.
+        </p>
+        <p class="chapter__body chapter__body--indent">
+          At the end of the world, gravity feels more honest. The mountains do not pretend to be gentle. The wind does
+          not pretend to calm.
+        </p>
+        <div class="chapter__byline">
+          <span class="chapter__author">The Weird Wanderer</span>
+          <span class="chapter__dispatch">Dispatch № 38 · Aug 2025</span>
+        </div>
+        <!-- Full dispatch coming soon -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CHAPTER 5 — RAJASTHAN ══════════════════════════════ -->
+  <section class="chapter chapter--flip" id="ch-rajasthan" data-chapter="5" data-dest="rajasthan">
+    <div class="chapter__parallax-wrap">
+      <div class="chapter__parallax-img" style="background-image: url('assets/rajasthan.png')"></div>
+      <div class="chapter__img-veil"></div>
+    </div>
+    <div class="chapter__caption-block">
+      <p class="chapter__region">Asia · India</p>
+      <p class="chapter__coords">26.9°N, 75.8°E</p>
+    </div>
+    <div class="chapter__reveal-mask">
+      <div class="chapter__text-panel glass">
+        <p class="chapter__number">05</p>
+        <h2 class="chapter__title">The Blue City at Dusk</h2>
+        <p class="chapter__body">
+          Jodhpur's indigo walls turn violet as the sun drops behind Mehrangarh — a fortress that watches over the city
+          like a stone god who has grown kind with age. From the ramparts you can see the entire blue smear of the old
+          city laid out below.
+        </p>
+        <p class="chapter__body chapter__body--indent">
+          We climbed before dawn and watched the city emerge from the haze of night. First the minarets caught the
+          light, then the domes, then the thousand blue rooftops — each one a world in itself.
+        </p>
+        <div class="chapter__byline">
+          <span class="chapter__author">The Weird Wanderer</span>
+          <span class="chapter__dispatch">Dispatch № 35 · Jul 2025</span>
+        </div>
+        <!-- Full dispatch coming soon -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ INTERLUDE QUOTE 2 ═══════════════════════════════════ -->
+  <div class="interlude" id="q2">
+    <div class="interlude__line"></div>
+    <blockquote class="interlude__quote">
+      "Not all those who wander are lost."
+      <cite>– J.R.R. Tolkien</cite>
+    </blockquote>
+    <div class="interlude__line"></div>
+  </div>
+
+  <!-- ═══ CHAPTER 6 — NORWAY ════════════════════════════════ -->
+  <section class="chapter chapter--cinematic chapter--final" id="ch-norway" data-chapter="6" data-dest="norway">
+    <div class="chapter__parallax-wrap chapter__parallax-wrap--full">
+      <div class="chapter__parallax-img" style="background-image: url('assets/norway.png')"></div>
+      <div class="chapter__img-veil chapter__img-veil--heavy"></div>
+    </div>
+    <div class="chapter__cinematic-text">
+      <p class="chapter__region">Europe · Norway</p>
+      <p class="chapter__number">06</p>
+      <h2 class="chapter__title chapter__title--big">Kayaking Into Prehistory</h2>
+      <p class="chapter__body chapter__body--centered">
+        The fjord walls rose 600 meters on each side. My paddle dipped into water so clear I could see thirty feet of
+        green-black depth. The silence was not the absence of sound — it was a presence in itself.
+      </p>
+      <!-- Full dispatch coming soon -->
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING — CTA ══════════════════════════════════════ -->
+  <section class="journey-end" id="journeyEnd">
+    <div class="journey-end__inner">
+      <p class="journey-end__label">Your story begins here</p>
+      <h2 class="journey-end__title">
+        Choose Your<br><em>Destination</em>
+      </h2>
+      <p class="journey-end__sub">Every place has a story. Every journey a dispatch waiting to be written. Join me in
+        the field.</p>
+      <div class="journey-end__actions">
+        <a href="destinations.html" class="journey-end__btn journey-end__btn--primary">Explore Destinations</a>
+      </div>
+    </div>
+    <div class="journey-end__orb journey-end__orb--1"></div>
+    <div class="journey-end__orb journey-end__orb--2"></div>
+  </section>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Back-to-top -->
+  <button class="btt" id="btt" aria-label="Back to top">↑</button>
+
+  <!-- ═══ SCRIPTS ═══════════════════════════════════════════ -->
+  <script src="js/data.js"></script>
+  <!-- GSAP + ScrollTrigger CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="js/journey.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Citadel of Ancient Spirits — Harishchandragad — The Weird Wanderer</title>
+    <meta name="description"
+        content="Witnessing the vertical cloud burst at the legendary Konkan Kada and exploring the 6th-century mysteries of Harishchandragad. A dispatch from the Sahyadris." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="story.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/circular-gallery.css" />
+    <link rel="stylesheet" href="css/image-reveal.css" />
+    
+    <!-- Smooth Scroll (Lenis) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Reading progress -->
+    <div class="story-progress" id="readingProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__wordmark" aria-label="The Weird Wanderer — home">The Weird Wanderer</a>
+        <div class="nav__links">
+            <a href="index.html#journeys">Journeys</a>
+            <a href="index.html#manifesto">Manifesto</a>
+            <a href="index.html#words">Words</a>
+            <a href="index.html" class="nav__enter">← Back</a>
+            <!-- Climate Selector -->
+            <div class="nav__climate">
+                <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+                    <span class="nav__climate-label">Climate</span>
+                    <span id="climateIcon" class="nav__climate-icon">⠿</span>
+                    <span id="climateStatus" class="nav__climate-status">Clear</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Story Hero ─────────────────────────────────────────── -->
+    <header class="story-hero" aria-label="Dispatch header">
+
+        <div class="story-hero__bg" id="heroBg">
+            <div
+                style="position:absolute;inset:0;background-image: url('assets/harishchandragad-cover.jpg'); background-size: cover; background-position: center; width:100%; height:100%; opacity: 0.6;">
+            </div>
+            <div
+                style="position:absolute;inset:0;background: linear-gradient(to bottom, transparent, #0d0c0b); width:100%; height:100%;">
+            </div>
+        </div>
+
+        <div class="story-hero__particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="story-hero__vignette" aria-hidden="true"></div>
+        <span class="story-hero__open-word" id="openWord" aria-hidden="true">हरिश्चंद्रगड</span>
+
+        <div class="story-hero__content">
+            <span class="story-hero__label" id="heroLabel">
+                India · Maharashtra · <a href="https://www.google.com/maps/search/?api=1&query=19.38,73.77" target="_blank" rel="noopener" class="coord-link">19.38° N, 73.77° E</a>
+            </span>
+            <h1 class="story-hero__title" id="heroTitle">
+                <span class="hero-word">The </span>
+                <span class="hero-word">Citadel </span>
+                <span class="hero-word">of </span>
+                <span class="hero-word"><em>Ancient Spirits</em></span>
+            </h1>
+            <div class="story-hero__meta">
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Written by</span>
+                    <span class="story-meta__val">The Weird Wanderer</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Published</span>
+                    <span class="story-meta__val" id="publishDate">June 16, 2025</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Reading time</span>
+                    <span class="story-meta__val" id="readTime">12 minutes</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Dispatch no.</span>
+                    <span class="story-meta__val" id="dispatchNo">№ 55</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-hero__scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="story-hero__scroll-line"></div>
+        </div>
+
+        <!-- Gallery Trigger -->
+        <div class="story-hero__gallery-trigger">
+            <button id="openGallery" class="gallery-btn">
+                <span class="gallery-btn__icon">▤</span>
+                <span class="gallery-btn__label">View Gallery</span>
+            </button>
+        </div>
+
+    </header>
+
+    <main id="story-main" role="main" aria-label="Story content">
+
+        <section class="story-section">
+            <p class="story-p story-dropcap" data-scroll>
+                There are places where the earth doesn't just end; it drops away into a dream. Harishchandragad is one of those places. Standing at 1,422 meters, this ancient fort of the Kalachuri dynasty is not merely a destination—it is a confrontation with the sheer scale of the Western Ghats. We arrived as the pre-monsoon winds began to whip through the Malshej region, carrying the scent of parched earth finally meeting the rain.
+            </p>
+
+            <blockquote class="story-pull" data-scroll>
+                "At Konkan Kada, the wind doesn't blow; it roars, pushing the clouds vertically up the cliff in a display of raw, elemental theatre."
+            </blockquote>
+
+            <p class="story-p" data-scroll>
+                The highlight of any journey here is the Konkan Kada. A semicircular, overhanging cliff with a 500-meter vertical drop, it feels like the edge of the world. During our stay, we witnessed the legendary "vertical cloud burst"—where the wind is so strong it forces the clouds back up the cliff face, creating a mist that defies gravity itself. It is at once terrifying and deeply humbling.
+            </p>
+
+            <div class="story-image-full" style="height: 70vh; margin: 6rem 0;" data-scroll>
+                <img src="assets/harishchandragad-cover.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                    alt="The massive Konkan Kada cliff at sunset">
+                <p class="story-caption">The concave overhang of Konkan Kada, where the sky meets the abyss.</p>
+            </div>
+
+            <p class="story-p" data-scroll>
+                But Harishchandragad is more than just its vistas. It is a place of deep, silent history. The Kedareshwar Cave houses a massive Shiva Linga perpetually surrounded by waist-deep, ice-cold water. Legend says the four pillars of the cave represent the four Yugas—Krita, Treta, Dvapara, and Kali. Only one pillar remains standing today. They say when it falls, the world as we know it will end. Standing in that cold silence, watching the water ripple around the ancient stone, it’s a legend that feels strangely plausible.
+            </p>
+
+            <p class="story-p" data-scroll>
+                We spent the night in the ancient caves, the rock walls echoing with the whispers of a thousand years. From the 6th-century carvings of Harishchandreshwar temple to the sweeping views from Taramati Peak—the highest point of the fort—every step here is a step back in time. As the sun set over the Konkan plains, painting the abyss in shades of burning copper, we realized that Harishchandragad doesn’t just offer a view; it offers a perspective.
+            </p>
+
+            <blockquote class="story-quote" data-scroll>
+                "Some summits are reached with the feet; Harishchandragad is reached with the soul."
+            </blockquote>
+
+            <div class="story-section__ornament" data-scroll>
+                <span>✥</span>
+            </div>
+
+            <div class="story-image-full" style="height: 90vh; margin: 8rem 0; position: relative;" data-scroll>
+                <div style="position: absolute; inset: 0; background: radial-gradient(circle, transparent 20%, rgba(13, 12, 11, 0.4) 100%); z-index: 1; pointer-events: none;"></div>
+                <img src="assets/bus.jpg" 
+                    style="width: 100%; height: 100%; object-fit: cover; display: block; filter: contrast(1.05) brightness(0.95); mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);"
+                    alt="The bus driver at the wheel on the road back from Harishchandragad">
+                <p class="story-caption" style="position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 2; border: none; background: none; text-shadow: 0 2px 10px rgba(0,0,0,0.5);">
+                    The return journey: a silent witness to a thousand departures.
+                </p>
+            </div>
+
+            <p class="story-p" data-scroll>
+                On the long road back, I've been on this bus maybe twice, three times. Same route each time, same driver, same grey weather outside the windows.
+            </p>
+
+            <p class="story-p" data-scroll>
+                He wears a khaki uniform — the kind that's been washed so many times it's lost any crispness it once had. A red checked cloth tucked at his waist. Shoulder epaulettes that suggest some official rank nobody on the bus thinks about. He sits slightly forward, both hands on that big worn wheel, eyes straight ahead.
+            </p>
+
+            <p class="story-p" data-scroll>
+                The bus is old. The dashboard looks like it's held together more by habit than hardware. The steering wheel is thick and dark from years of the same grip, the same turns. There's nothing modern about any of it.
+            </p>
+
+            <p class="story-p" data-scroll>
+                But outside — green. Dense, hilly, the kind of trees that close in on both sides of a mountain road. Every time I've sat on this bus, the view through those windows has been the same. I still find it worth looking at. He stopped finding it interesting a long time ago, I'd guess.
+            </p>
+
+            <p class="story-p" data-scroll>
+                That's what gets me about this photo — whoever took it split it down the middle. Black and white on the left: the machinery, the road, the mechanics of the thing. Warm on the right: him. The person doing it. I don't think that split was accidental.
+            </p>
+
+            <p class="story-p" data-scroll>
+                I've traveled this route so few times I still notice it. He's driven it so many times he's become part of it. Same uniform, same wheel, same trees blurring past — and he still shows up and puts both hands on that wheel like it matters.
+            </p>
+
+            <p class="story-p" data-scroll>
+                Maybe it does. Probably it does. I just don't think he's sitting there wondering about it.
+            </p>
+        </section>
+
+    </main>
+
+    <aside class="story-end" id="storyEnd" aria-label="End of dispatch">
+        <div class="story-end__coords" data-scroll>
+            <a href="https://www.google.com/maps/search/?api=1&query=19.38,73.77" target="_blank" rel="noopener" class="coord-link">19.38° N · 73.77° E</a> · Ahmednagar, India
+        </div>
+        <div class="story-end__divider" data-scroll></div>
+        <div class="story-end__next-label" data-scroll>The Soul of the Sahyadris</div>
+    </aside>
+
+    <!-- ── THE ONE AND ONLY Cinematic Ending ── -->
+    <section class="story-ending-reveal" id="endingRevealSection">
+        <div class="ending-reveal-container">
+            <div class="ending-reveal__part-wrap"><span class="ending-part">The world ends,</span></div>
+            <div class="ending-reveal__part-wrap"><span class="ending-part">The story remains,</span></div>
+            <div class="ending-reveal__part-wrap"><span class="ending-part">Across the abyss,</span></div>
+            <div class="ending-reveal__part-wrap"><span class="ending-part">We are but mist.</span></div>
+        </div>
+    </section>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gm-title">
+        <header class="gallery-modal__header">
+            <h2 id="gm-title" class="gallery-modal__title">Harishchandragad Dispatch · Gallery</h2>
+            <button id="closeGallery" class="gallery-modal__close">✕ Close</button>
+        </header>
+
+        <main class="gallery-modal__content">
+            <div id="mediaContainer" class="gallery-modal__media-wrap">
+                <!-- Circular Gallery injected here -->
+            </div>
+        </main>
+
+        <footer class="gallery-modal__footer">
+            <p class="gallery-modal__hint">Drag or use mouse wheel to explore the wheel</p>
+        </footer>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+            <div>
+                <div class="site-footer__wordmark-container">
+                    <span class="site-footer__wordmark">The Weird Wanderer</span>
+                    <div class="brand-meanings">
+                        <span class="meaning hindi">अजीब मुसाफ़िर</span>
+                        <span class="meaning urdu">عجیب مسافر</span>
+                        <span class="meaning english">The Weird Wanderer</span>
+                    </div>
+                </div>
+                <div class="site-footer__tagline">A journal of slow travel · Est. 2015</div>
+            </div>
+            <div></div>
+            <div>
+                <div class="label" style="margin-bottom:0.4rem;">Dispatch no.</div>
+                <div class="site-footer__coords">
+                    <a href="https://www.google.com/maps/search/?api=1&query=19.38,73.77" target="_blank" rel="noopener" class="coord-link">19.38° N · 73.77° E</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/circularGallery.js"></script>
+    <script src="js/imageReveal.js"></script>
+    <script src="main.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const destId = 'harishchandragad';
+            
+            // Cinematic Ending Reveal
+            const endingParts = document.querySelectorAll('.ending-part');
+            const endingSection = document.getElementById('endingRevealSection');
+            
+            if (endingSection && endingParts.length) {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: endingSection,
+                        start: 'top top',
+                        end: '+=300%',
+                        pin: true,
+                        scrub: 1,
+                        anticipatePin: 1
+                    }
+                });
+
+                endingParts.forEach((part, i) => {
+                    tl.from(part, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 1,
+                        ease: 'power2.out'
+                    }, i > 0 ? '+=0.5' : 0);
+                });
+            }
+
+            // Reading progress
+            const bar = document.getElementById('readingProgress');
+            const main = document.getElementById('story-main');
+            let currentProgress = 0, targetProgress = 0;
+            if (bar && main) {
+                const updateTarget = () => {
+                    const rect = main.getBoundingClientRect();
+                    const total = main.offsetHeight - window.innerHeight;
+                    const scrolled = Math.max(0, -rect.top);
+                    targetProgress = Math.min(1, scrolled / total);
+                };
+                const lerp = (a, b, t) => a + (b - a) * t;
+                const animate = () => {
+                    currentProgress = lerp(currentProgress, targetProgress, 0.08);
+                    if (Math.abs(currentProgress - targetProgress) > 0.0001) bar.style.transform = `scaleX(${currentProgress})`;
+                    requestAnimationFrame(animate);
+                };
+                window.addEventListener('scroll', updateTarget, { passive: true });
+                updateTarget(); animate();
+            }
+
+            const scrollEls = document.querySelectorAll('[data-scroll]');
+            if (scrollEls.length) {
+                const revealIO = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const siblings = e.target.parentElement.querySelectorAll('[data-scroll]');
+                            let sibIdx = Array.from(siblings).indexOf(e.target);
+                            if (sibIdx < 0) sibIdx = 0;
+                            e.target.style.transitionDelay = (sibIdx * 0.08) + 's';
+                            e.target.classList.add('is-visible');
+                            revealIO.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                scrollEls.forEach(el => revealIO.observe(el));
+            }
+
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                const heroH = document.querySelector('.story-hero')?.offsetHeight || 600;
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > heroH) btt.classList.add('is-visible');
+                    else btt.classList.remove('is-visible');
+                }, { passive: true });
+                btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
+        })();
+
+        // ── Gallery Logic ──
+        (function() {
+            const destId = 'harishchandragad';
+            const photos = getPhotosFor(destId);
+            const modal = document.getElementById('galleryModal');
+            const openBtn = document.getElementById('openGallery');
+            const closeBtn = document.getElementById('closeGallery');
+            const container = document.getElementById('mediaContainer');
+
+            if (!modal || !openBtn || !container) return;
+
+            const gallery = new CircularGallery(container, photos);
+
+            openBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('is-open'), 10);
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('is-open');
+                setTimeout(() => modal.style.display = 'none', 600);
+                document.body.style.overflow = '';
+                gallery.stop();
+            });
+        })();
+    </script>
+    <script src="js/climate.js"></script>
+</body>
+
+</html>

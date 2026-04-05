@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destinations — The Weird Wanderer</title>
+  <meta name="description"
+    content="Explore the salt deserts and ancient shipyards of Kutch, Gujarat.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/destinations.css">
+</head>
+
+<body>
+  <!-- ── Nav ──────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html" class="nav__active">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────────── -->
+  <header class="dest-hero">
+    <p class="dest-hero__label">Explore · Discover · Return Changed</p>
+    <h1 class="dest-hero__title">Destinations</h1>
+    <p class="dest-hero__sub">One land. Infinite stories. From the salt deserts of Kutch to the mystical heights of Harishchandragad.</p>
+  </header>
+
+  <!-- ── Filter Bar ───────────────────────────────── -->
+  <section class="filters" id="filters">
+    <button class="filter-btn active" data-filter="all">All Regions</button>
+    <button class="filter-btn" data-filter="Gujarat, India">Gujarat</button>
+    <button class="filter-btn" data-filter="Maharashtra, India">Maharashtra</button>
+    <button class="filter-btn" data-filter="Rajasthan, India">Rajasthan</button>
+  </section>
+
+  <!-- ── Destination Grid ─────────────────────────── -->
+  <section class="dest-grid" id="dest-grid">
+    <!-- populated by JS -->
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script>
+    // ── Render Destinations ──
+    const grid = document.getElementById('dest-grid');
+    function renderDestinations(filter) {
+      const dests = filter === 'all' ? DESTINATIONS : DESTINATIONS.filter(d => d.region === filter);
+      grid.innerHTML = dests.map(d => `
+        <div class="dest-card" style="--card-gradient:${d.gradient}">
+          <div class="dest-card__inner">
+            <!-- Front Face -->
+            <div class="dest-card__front">
+              <div class="dest-card__bg" style="background-image: url('${d.image}'); background-size: cover; background-position: center;"></div>
+              <div class="dest-card__overlay"></div>
+              <div class="dest-card__content">
+                <span class="dest-card__region">${d.region}</span>
+                <h2 class="dest-card__name">${d.name}</h2>
+                <p class="dest-card__tagline">${d.tagline}</p>
+                <div class="dest-card__meta">
+                  <span class="dest-card__coords">
+                    <a href="https://www.google.com/maps/search/?api=1&query=${d.lat},${d.lng}" target="_blank" rel="noopener" class="coord-link">${d.coords}</a>
+                  </span>
+                  <span class="dest-card__stories">${d.storyCount} stories</span>
+                </div>
+              </div>
+            </div>
+            <!-- Back Face -->
+            <div class="dest-card__back">
+               <div class="dest-card__back-content">
+                 <h3 class="dest-card__back-title">Photos & Details</h3>
+                 <div class="dest-card__stats">
+                    <div class="dest-stat">
+                        <span class="dest-stat__val">${d.storyCount}</span>
+                        <span class="dest-stat__label">Dispatches</span>
+                    </div>
+                 </div>
+                 <a href="${d.storyUrl}" class="dest-card__btn">VIEW DETAILS</a>
+               </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+    renderDestinations('all');
+
+    // ── Filters ──
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+        renderDestinations(btn.dataset.filter);
+      });
+    });
+
+    // ── Burger ──
+    document.getElementById('burger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('open');
+    });
+  </script>
+  <script src="js/climate.js"></script>
+</body>
+
+</html>

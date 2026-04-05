@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Alley That Had No Name — The Weird Wanderer</title>
+    <meta name="description"
+        content="A literary dispatch from the medinas of Marrakech. Three days of deliberate disorientation, one unnamed alley, and a man who drank scalding tea with uncommon patience." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="story.css" />
+</head>
+
+<body>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Reading progress -->
+    <div class="story-progress" id="readingProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__wordmark" aria-label="The Weird Wanderer — home">The Weird Wanderer</a>
+        <div class="nav__links">
+            <a href="index.html#journeys">Journeys</a>
+            <a href="index.html#manifesto">Manifesto</a>
+            <a href="index.html#words">Words</a>
+            <a href="index.html" class="nav__enter">← Back</a>
+            <!-- Climate Selector -->
+            <div class="nav__climate">
+                <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+                    <span class="nav__climate-label">Climate</span>
+                    <span id="climateIcon" class="nav__climate-icon">⠿</span>
+                    <span id="climateStatus" class="nav__climate-status">Clear</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Story Hero ─────────────────────────────────────────── -->
+    <header class="story-hero" aria-label="Dispatch header">
+
+        <div class="story-hero__bg" id="heroBg">
+            <div style="position:absolute;inset:0;background:
+      radial-gradient(ellipse at 70% 40%, rgba(160,40,20,0.6) 0%, transparent 55%),
+      radial-gradient(ellipse at 20% 80%, rgba(100,20,10,0.5) 0%, transparent 50%),
+      linear-gradient(160deg, #0d0505 0%, #1a0606 30%, #330808 55%, #5a1008 75%, #481006 100%);
+      width:100%;height:100%;"></div>
+            <div
+                style="position:absolute;inset:0;opacity:0.03;background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(200,169,110,0.3) 30px, rgba(200,169,110,0.3) 31px),
+      repeating-linear-gradient(90deg, transparent, transparent 30px, rgba(200,169,110,0.3) 30px, rgba(200,169,110,0.3) 31px);">
+            </div>
+        </div>
+
+        <!-- Floating dust particles -->
+        <div class="story-hero__particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="story-hero__vignette" aria-hidden="true"></div>
+        <span class="story-hero__open-word" id="openWord" aria-hidden="true">مراكش</span>
+
+        <div class="story-hero__content">
+            <span class="story-hero__label" id="heroLabel">Morocco · Marrakech · 31.6° N, 8.0° W</span>
+            <h1 class="story-hero__title" id="heroTitle">
+                <span class="hero-word">The </span>
+                <span class="hero-word">Alley </span>
+                <span class="hero-word">That </span>
+                <span class="hero-word">Had </span>
+                <span class="hero-word"><em>No</em> </span>
+                <span class="hero-word"><em>Name</em></span>
+            </h1>
+            <div class="story-hero__meta">
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Written by</span>
+                    <span class="story-meta__val">The Weird Wanderer</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Published</span>
+                    <span class="story-meta__val" id="publishDate">February 14, 2023</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Reading time</span>
+                    <span class="story-meta__val" id="readTime">18 minutes</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Dispatch no.</span>
+                    <span class="story-meta__val" id="dispatchNo">No. 83</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-hero__scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="story-hero__scroll-line"></div>
+        </div>
+
+    </header>
+
+    <main id="story-main" role="main" aria-label="Story content">
+
+        <section class="story-section">
+            <p class="story-p story-dropcap" data-scroll>
+                There are cities that make you feel you know them immediately, and then there are cities that resist you
+                for
+                years, revealing themselves only through misreadings, wrong turns, and the particular grace of getting
+                lost at
+                the right time. Marrakech is emphatically the second kind of city.
+            </p>
+
+            <p class="story-p" data-scroll>
+                I arrived on a Tuesday in February, which I mention only because Tuesdays in February have a kind of
+                provisional
+                quality — neither the beginning nor the middle of anything, and therefore perfect for beginning
+                something in the
+                wrong way. My riad was somewhere in the northern medina. I had an address that was eighteen words long
+                and
+                contained two street names that no longer existed and one that had never been officially named.
+            </p>
+
+            <blockquote class="story-pull" data-scroll>
+                "Every getting lost in Marrakech is a getting lost on purpose, even when you didn't intend it. The
+                medina
+                conspires."
+            </blockquote>
+
+            <p class="story-p" data-scroll>
+                The medina of Marrakech was built before the concept of urban planning existed in any form that a modern
+                civil
+                engineer would recognize. It grew the way all organic things grow: following water, following light,
+                following
+                the logic of adjacency. One thing next to another thing because the other thing was already there.
+                Streets
+                narrowed because walls were built. Walls were built because land was claimed. Land was claimed because a
+                family
+                grew, or a business expanded, or a man decided that this was the place where he would plant his roots
+                and let
+                the world rearrange itself around him.
+            </p>
+
+            <div class="story-sound" id="ambientSound" role="button" tabindex="0"
+                title="Play ambient audio — Marrakech medina" data-scroll>
+                <div class="story-sound__icon" aria-hidden="true">
+                    <span class="sound-play-icon">▶</span>
+                    <div class="sound-wave">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="story-sound__label">Ambient audio</div>
+                    <div class="story-sound__name">Marrakech medina — morning call to prayer, distant market sounds
+                    </div>
+                </div>
+            </div>
+
+            <p class="story-p" data-scroll>
+                The result is a city that cannot be navigated by any form of conventional logic. The souks — the covered
+                market
+                streets — twist and fold into each other with what seems, to the newcomer, like malicious intent. You
+                will try
+                to go north and arrive facing east. You will turn left twice and end up where you started. You will turn
+                right
+                and find yourself in a courtyard that belongs to a private home and that has no visible exit. A man will
+                appear
+                and escort you out through a door you could not see.
+            </p>
+        </section>
+
+        <div class="story-image-full story-image-full--moroccoA" role="img"
+            aria-label="Atmospheric view of a Marrakech alley — terracotta walls, dappled shade"
+            style="background: linear-gradient(145deg, #0d0505 0%, #250708 25%, #550f0f 50%, #7a2010 70%, #501008 100%);">
+            <div
+                style="position:absolute;inset:0;background: radial-gradient(ellipse at 40% 50%, rgba(200,100,30,0.15) 0%, transparent 60%);">
+            </div>
+        </div>
+        <div class="story-caption" data-scroll>A courtyard off an unnumbered alley in the northern medina — photograph
+            taken
+            at two in the afternoon when the light does something impossible</div>
+
+        <div class="story-section__ornament" aria-hidden="true"><span>◆</span></div>
+
+        <section class="story-section">
+            <p class="story-p" data-scroll>
+                On the second morning, I stopped trying to find my way and started trying to be found. This is a
+                different
+                activity, and it requires a different posture: a loosening of the grip on intention, a willingness to be
+                where
+                you accidentally are. I found a tea shop — or the tea shop found me, which is how it felt — just off a
+                street
+                that my map showed as a blank strip of yellow with no name attached.
+            </p>
+
+            <p class="story-p" data-scroll>
+                The proprietor was a man of indeterminate age. He could have been fifty or eighty; his face had the
+                quality of
+                leather treated by weather and time until it had become its own kind of text. He was drinking tea from a
+                small
+                glass, tilting it toward the light as one might examine a jewel. He looked at me, looked at the empty
+                chair
+                across the low table, and said something I did not understand.
+            </p>
+
+            <blockquote class="story-pull" data-scroll>
+                "He said something in Darija that I took to mean: <em>you've arrived, though I'm not sure you knew you
+                    were
+                    coming</em>. I may have been wrong about this. I held onto it anyway."
+            </blockquote>
+        </section>
+
+        <div class="story-split">
+            <div class="story-split__text">
+                <p class="story-p" data-scroll style="margin-top:0;">
+                    We sat and drank tea for an hour, neither of us with any particular command of the other's language,
+                    and we
+                    managed nonetheless to establish certain facts about each other: that he had lived in this
+                    neighborhood for
+                    sixty years; that his father had built the table we were sitting at; that the alley outside had no
+                    name
+                    because it had never needed one — everyone who needed to find it already knew where it was, and
+                    strangers
+                    weren't supposed to find it, and occasionally one came along and sat down and drank tea.
+                </p>
+
+                <p class="story-p" data-scroll>
+                    I was, apparently, that occasional stranger.
+                </p>
+
+                <p class="story-p" data-scroll>
+                    He refilled my glass without asking. The tea was scalding and sweet in the way that good Moroccan
+                    mint tea
+                    achieves — a sweetness that is its own kind of force, not cloying but assertive, a declaration of
+                    intention.
+                    The mint was fresh and aggressive. I burned my lips a little, which seemed correct.
+                </p>
+
+                <p class="story-p" data-scroll>
+                    Outside, the alley continued to do what alleys in the medina do: narrow, expand, fill with the sound
+                    of
+                    someone hammering somewhere distant, empty out completely for twenty minutes, then suddenly route
+                    three men
+                    carrying long planks of wood through its improbable width.
+                </p>
+            </div>
+            <div class="story-split__image-col">
+                <div class="story-split__image" role="img" aria-label="Moroccan mint tea in a small glass, backlit"
+                    style="background: linear-gradient(180deg, #1a0a02 0%, #3a1505 30%, #6a2808 55%, #5a2005 75%, #2a0c02 100%);">
+                    <div
+                        style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, rgba(200,120,30,0.2) 0%, transparent 65%);">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-section__ornament" aria-hidden="true"><span>◆</span></div>
+
+        <section class="story-section">
+            <p class="story-p" data-scroll>
+                Later — I'm not sure how much later, because time in the medina operates by its own units — I tried to
+                explain
+                to him, in my terrible French, that I had been trying to give my experience of the city some shape, some
+                narrative logic. That I had arrived with the assumption that the medina could be understood, mapped,
+                mastered in
+                the way that most Western visitors seem to assume places can be mastered: through preparation, through
+                the
+                accumulation of information, through the application of sufficient effort.
+            </p>
+
+            <p class="story-p" data-scroll>
+                He listened to this carefully. He refilled my glass again.
+            </p>
+
+            <p class="story-p" data-scroll>
+                He said, in French this time, something that I think translates roughly as: <em>the city doesn't care
+                    what you
+                    want to understand about it. It has its own agenda.</em>
+            </p>
+
+            <blockquote class="story-pull" data-scroll>
+                "A city is not a problem to be solved. It is a condition to be inhabited. You inhabit it or it inhabits
+                you, but
+                either way you are not in charge of the terms."
+            </blockquote>
+
+            <p class="story-p" data-scroll>
+                I stayed another three days in Marrakech. I did not try to map the medina. I went back to the unnamed
+                alley
+                twice. The second time, the tea shop was there and the proprietor was there and he nodded when I
+                appeared, and
+                brought tea without ceremony, and we sat again in what I can only describe as a mutually comfortable
+                silence
+                that neither of us had earned but both of us seemed to share.
+            </p>
+
+            <p class="story-p" data-scroll>
+                The third time, the alley wasn't there. Or — more precisely — I found an alley that looked like the
+                alley but
+                which contained, in the place where the tea shop should have been, a door that was firmly shut and
+                showed no
+                signs of ever having been a tea shop. This is, I've since come to understand, a completely ordinary
+                thing to
+                happen in Marrakech. The city rearranges itself while you're not looking. This is not a metaphor.
+            </p>
+
+            <div class="story-image-full story-image-full--moroccoB" role="img"
+                aria-label="End of an alley at dusk — warm ochre light, silhouetted figure"
+                style="background: linear-gradient(160deg, #0d0808 0%, #200a06 30%, #420f08 55%, #721208 75%, #601008 100%);margin: 2.5rem calc(-1 * clamp(1.5rem, 5vw, 3rem));width:calc(100% + clamp(3rem, 10vw, 6rem));max-width:none;">
+                <div
+                    style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 60%, rgba(180,80,20,0.15) 0%, transparent 55%);">
+                </div>
+            </div>
+            <div class="story-caption" data-scroll>The alley at dusk — taken on the fourth morning when it had,
+                temporarily, a
+                different name</div>
+
+            <p class="story-p" data-scroll>
+                What I took from Marrakech — what I take, still, years later — is not knowledge about the city. It is
+                something
+                more like a posture. An orientation. The understanding that some places are not meant to be understood,
+                only
+                moved through; and that moving through them carefully, with attention to what seems incidental, is its
+                own form
+                of knowledge. Not the kind you can put in a guidebook, but the kind that changes how you move.
+            </p>
+        </section>
+
+    </main>
+
+    <aside class="story-end" id="storyEnd" aria-label="End of dispatch and next dispatch preview">
+        <div class="story-end__coords" data-scroll>31° 37' N · 8° 0' W · Marrakech, Morocco</div>
+        <div class="story-end__divider" data-scroll></div>
+        <div class="story-end__next-label" data-scroll>Next dispatch</div>
+        <div class="story-end__next-title" data-scroll>Bhuj — Mandvi — Kutch</div>
+        <div class="story-end__next-meta" data-scroll>India · Gujarat · January 2024</div>
+        <a href="kutch.html" class="story-end__next-link" data-scroll>Read next dispatch →</a>
+    </aside>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+            <div>
+                <div class="site-footer__wordmark-container">
+                    <span class="site-footer__wordmark">The Weird Wanderer</span>
+                    <div class="brand-meanings">
+                        <span class="meaning hindi">अजीब मुसाफ़िर</span>
+                        <span class="meaning urdu">عجیب مسافر</span>
+                        <span class="meaning english">The Weird Wanderer</span>
+                    </div>
+                </div>
+                <div class="site-footer__tagline">A journal of slow travel · Est. 2015</div>
+            </div>
+            <div></div>
+            <div>
+                <div class="label" style="margin-bottom:0.4rem;">Dispatch no.</div>
+                <div class="site-footer__coords">83 of 127</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const bar = document.getElementById('readingProgress');
+            const main = document.getElementById('story-main');
+            let currentProgress = 0, targetProgress = 0;
+            if (bar && main) {
+                const updateTarget = () => {
+                    const rect = main.getBoundingClientRect();
+                    const total = main.offsetHeight - window.innerHeight;
+                    const scrolled = Math.max(0, -rect.top);
+                    targetProgress = Math.min(1, scrolled / total);
+                };
+                const lerp = (a, b, t) => a + (b - a) * t;
+                const animate = () => {
+                    currentProgress = lerp(currentProgress, targetProgress, 0.08);
+                    if (Math.abs(currentProgress - targetProgress) > 0.0001) bar.style.transform = `scaleX(${currentProgress})`;
+                    requestAnimationFrame(animate);
+                };
+                window.addEventListener('scroll', updateTarget, { passive: true });
+                updateTarget(); animate();
+            }
+            const scrollEls = document.querySelectorAll('[data-scroll]');
+            if (scrollEls.length) {
+                const revealIO = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const siblings = e.target.parentElement.querySelectorAll('[data-scroll]');
+                            let sibIdx = Array.from(siblings).indexOf(e.target);
+                            if (sibIdx < 0) sibIdx = 0;
+                            e.target.style.transitionDelay = (sibIdx * 0.08) + 's';
+                            e.target.classList.add('is-visible');
+                            revealIO.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                scrollEls.forEach(el => revealIO.observe(el));
+            }
+            const heroBg = document.getElementById('heroBg');
+            const heroSection = document.querySelector('.story-hero');
+            if (heroBg && heroSection) {
+                let heroTicking = false;
+                window.addEventListener('scroll', () => {
+                    if (!heroTicking) {
+                        requestAnimationFrame(() => {
+                            const rect = heroSection.getBoundingClientRect();
+                            if (rect.bottom > 0) heroBg.style.transform = `translateY(${window.scrollY * 0.25}px) scale(1.05)`;
+                            heroTicking = false;
+                        });
+                        heroTicking = true;
+                    }
+                }, { passive: true });
+            }
+            const parallaxImages = document.querySelectorAll('.story-image-full');
+            if (parallaxImages.length) {
+                let imgTicking = false;
+                window.addEventListener('scroll', () => {
+                    if (!imgTicking) {
+                        requestAnimationFrame(() => {
+                            parallaxImages.forEach(img => {
+                                const rect = img.getBoundingClientRect(), vh = window.innerHeight;
+                                if (rect.top < vh && rect.bottom > 0) {
+                                    const offset = (rect.top + rect.height / 2 - vh / 2) * 0.12;
+                                    img.style.transform = `translateY(${offset}px)`;
+                                }
+                            });
+                            imgTicking = false;
+                        });
+                        imgTicking = true;
+                    }
+                }, { passive: true });
+            }
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                const heroH = document.querySelector('.story-hero')?.offsetHeight || 600;
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > heroH) btt.classList.add('is-visible');
+                    else btt.classList.remove('is-visible');
+                }, { passive: true });
+                btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
+            const soundBtn = document.getElementById('ambientSound');
+            if (soundBtn) {
+                soundBtn.addEventListener('click', () => {
+                    soundBtn.classList.toggle('is-playing');
+                    const isPlaying = soundBtn.classList.contains('is-playing');
+                    soundBtn.title = isPlaying ? 'Stop ambient audio' : 'Play ambient audio — Marrakech medina';
+                });
+            }
+        })();
+    </script>
+    <script src="js/climate.js"></script>
+</body>
+
+</html>

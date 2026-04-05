@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — The Weird Wanderer</title>
+  <meta name="description" content="We believe travel is a literary act — a way of reading the world.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/about.css">
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html" class="nav__active">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <header class="about-hero">
+    <p class="about-hero__label">The philosophy behind the journey</p>
+    <h1 class="about-hero__title">About</h1>
+  </header>
+
+  <section class="about-content">
+    <div class="about-manifesto">
+      <blockquote class="about-manifesto__quote">
+        "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes."
+      </blockquote>
+      <p class="about-manifesto__attr">— Marcel Proust</p>
+    </div>
+
+    <div class="about-body">
+      <div class="about-col">
+        <h2 class="about-heading">My Journey</h2>
+        <div class="about-lead" data-scroll>
+          <p>The Weird Wanderer began as a personal quest to document the unseen textures of India. I believe that every
+            city has a
+            voice, every landscape a signature, and every moment a hidden depth that only reveals itself when we slow
+            down enough to listen.</p>
+        </div>
+        <p>What started as a leather-bound journal became a cinematic storytelling portal for those who refuse to travel
+          like tourists.</p>
+      </div>
+      <div class="about-col">
+        <h2 class="about-heading">My Approach</h2>
+        <p>I don't follow bucket lists. I follow stories. I hire local storytellers, eat where the locals eat, and
+          produce encounters rather than 'content'. Every trip results in a long-form dispatch, a photo essay, and a
+          piece of my soul left behind.</p>
+        <p>I believe the best trips change how you think, not just what you've seen.</p>
+      </div>
+    </div>
+
+    <!-- Values -->
+    <div class="about-values">
+      <div class="about-value">
+        <span class="about-value__num">01</span>
+        <h3 class="about-value__title">Slow Immersion</h3>
+        <p class="about-value__desc">We stay long enough for the unfamiliar to become familiar, and familiar enough to
+          surprise us.</p>
+      </div>
+      <div class="about-value">
+        <span class="about-value__num">02</span>
+        <h3 class="about-value__title">Literary Precision</h3>
+        <p class="about-value__desc">Every trip is documented with the care of a published essay. Names, dates, flavours
+          — nothing is generic.</p>
+      </div>
+      <div class="about-value">
+        <span class="about-value__num">03</span>
+        <h3 class="about-value__title">Ethical Presence</h3>
+        <p class="about-value__desc">We pay fairly, credit locally, and leave places better than we found them.</p>
+      </div>
+      <div class="about-value">
+        <span class="about-value__num">04</span>
+        <h3 class="about-value__title">Small Groups</h3>
+        <p class="about-value__desc">Four to eight travellers. Enough for conversation, too few for a crowd.</p>
+      </div>
+    </div>
+
+    </div>
+
+    <!-- The Digital Craft -->
+    <div class="about-tech" style="margin-top: 6rem; padding-top: 4rem; border-top: 1px solid var(--border);">
+      <h2 class="about-heading" style="text-align: center; margin-bottom: 3rem;">The Digital Craft</h2>
+      <div class="about-body" style="grid-template-columns: 1fr 1fr; gap: 4rem;">
+        <div class="about-col">
+          <h3
+            style="font-family: var(--ff-mono); color: var(--accent); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+            Leading Smooth Scroll Libraries</h3>
+          <p>The cinematic rhythm of this journal is powered by <strong>Lenis</strong>, a lightweight, robust smooth
+            scroll library. By decoupling scroll rendering from native DOM events, we ensure a buttery-smooth, 60fps
+            experience across all devices. The timeline of the stories flows like a continuous tracking shot.</p>
+        </div>
+        <div class="about-col">
+          <h3
+            style="font-family: var(--ff-mono); color: var(--accent); font-size: 0.9rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;">
+            Advanced Scrolling Patterns</h3>
+          <p>We leverage <strong>GSAP</strong> (GreenSock Animation Platform) and <strong>ScrollTrigger</strong> to
+            choreograph advanced parallax patterns, staggered text reveals, and atmospheric climate effects. Every
+            scroll interaction is a deliberate storytelling choice, grounding you deeper into the narrative landscape.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('burger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('open');
+    });
+  </script>
+  <script src="js/climate.js"></script>
+</body>
+
+</html>
