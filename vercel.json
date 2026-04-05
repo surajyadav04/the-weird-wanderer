@@ -1,0 +1,20 @@
+{
+  "cleanUrls": true,
+  "routes": [
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/stories", "dest": "/stories.html" },
+    { "src": "/destinations", "dest": "/destinations.html" },
+    { "src": "/destination", "dest": "/destination.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/journey", "dest": "/journey.html" },
+    { "src": "/kutch", "dest": "/kutch.html" },
+    { "src": "/tikona", "dest": "/tikona.html" },
+    { "src": "/barmer", "dest": "/barmer.html" },
+    { "src": "/marrakech", "dest": "/marrakech.html" },
+    { "src": "/harishchandragad", "dest": "/harishchandragad.html" },
+    { "src": "/packages", "dest": "/packages.html" },
+    { "src": "/photos", "dest": "/photos.html" },
+    { "src": "/map", "dest": "/map.html" },
+    { "src": "/", "dest": "/index.html" }
+  ]
+}
