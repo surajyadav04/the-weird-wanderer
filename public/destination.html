@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination — The Weird Wanderer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="story.css">
+    <style>
+        .dest-hero__meta {
+            margin-top: 1rem;
+            color: var(--accent);
+            font-family: var(--ff-mono);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        .story-list {
+            margin-top: 3rem;
+            display: grid;
+            gap: 2rem;
+        }
+
+        .story-card {
+            border: 1px solid var(--border);
+            padding: 2rem;
+            display: block;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .story-card:hover {
+            border-color: var(--accent);
+            background: rgba(200, 169, 110, 0.05);
+        }
+
+        .story-card__title {
+            font-family: var(--ff-serif);
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .story-card__excerpt {
+            color: var(--fog);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+
+<body class="is-loading">
+
+    <nav class="nav" id="nav">
+        <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+        <ul class="nav__links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html" class="nav__active">Destinations</a></li>
+            <li><a href="stories.html">Stories</a></li>
+            <li><a href="photos.html">Photos</a></li>
+            <li><a href="map.html">Map</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <!-- Climate Selector -->
+            <li class="nav__climate">
+                <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+                    <span class="nav__climate-label">Climate</span>
+                    <span id="climateIcon" class="nav__climate-icon">⠿</span>
+                    <span id="climateStatus" class="nav__climate-status">Clear</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <header class="story-hero">
+        <div class="story-hero__bg" id="hero-bg"></div>
+        <div class="story-hero__vignette"></div>
+        <div class="story-hero__content">
+            <span class="story-hero__label" id="dest-region"></span>
+            <h1 class="story-hero__title"><span id="dest-name"></span></h1>
+            <p class="story-hero__sub" id="dest-tagline"
+                style="font-family: var(--ff-serif); font-size: 1.4rem; font-style: italic; color: var(--fog); margin-top: -1rem; margin-bottom: 2rem;">
+            </p>
+            <div class="dest-hero__meta" id="dest-coords"></div>
+        </div>
+    </header>
+
+    <main class="story-section">
+        <div class="story-section__ornament"><span>✸</span></div>
+        <h2
+            style="font-family: var(--ff-serif); font-size: 2.5rem; font-weight: 300; text-align: center; margin-bottom: 3rem;">
+            Dispatches</h2>
+        <div id="dest-stories" class="story-list"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__inner">
+            <div class="footer__brand">
+                <div class="site-footer__wordmark-container">
+                    <span class="footer__wordmark">The Weird Wanderer</span>
+                    <div class="brand-meanings">
+                        <span class="meaning hindi">अजीब मुसाफ़िर</span>
+                        <span class="meaning urdu">عجیب مسافر</span>
+                        <span class="meaning english">The Weird Wanderer</span>
+                    </div>
+                </div>
+                <p class="footer__tagline">A storyteller's journal from India</p>
+            </div>
+            <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/js/data.js"></script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+        const dest = getDestination(id);
+
+        if (dest) {
+            document.title = `${dest.name} — The Weird Wanderer`;
+            document.getElementById('dest-name').textContent = dest.name;
+            document.getElementById('dest-region').textContent = dest.region;
+            document.getElementById('dest-tagline').textContent = dest.tagline;
+            document.getElementById('dest-coords').textContent = dest.coords;
+            document.getElementById('hero-bg').style.background = dest.gradient;
+
+            function getStoryUrl(id) {
+                if (id === 'kutch-salt') return 'kutch.html';
+                if (id === 'marrakech-alley' || id === 'morocco-riad') return 'marrakech.html';
+                if (id === 'reykjavik-silence') return 'journey.html#ch-iceland';
+                if (id === 'kyoto-temple' || id === 'kyoto-forest') return 'journey.html#ch-kyoto';
+                if (id === 'patagonia-wind') return 'journey.html#ch-patagonia';
+                if (id === 'rajasthan-blue') return 'journey.html#ch-rajasthan';
+                if (id === 'norway-fjord') return 'journey.html#ch-norway';
+                return 'journey.html';
+            }
+
+            const stories = getStoriesFor(id);
+            const storyList = document.getElementById('dest-stories');
+            if (stories.length > 0) {
+                storyList.innerHTML = stories.map(s => {
+                    const url = getStoryUrl(s.id);
+                    return `
+                        <a href="${url}" class="story-card">
+                            <h3 class="story-card__title">${s.title}</h3>
+                            <p class="story-card__excerpt">${s.excerpt}</p>
+                        </a>
+                    `;
+                }).join('');
+            } else {
+                storyList.innerHTML = '<p style="text-align:center; color:var(--fog);">No dispatches found for this destination yet.</p>';
+            }
+        } else {
+            window.location.href = 'destinations.html';
+        }
+    </script>
+    <script src="/js/climate.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — The Weird Wanderer</title>
+  <meta name="description" content="Start a conversation. Tell us where you want to go and what you want to find.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav__active">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <header class="contact-hero">
+    <p class="contact-hero__label">Begin the conversation</p>
+    <h1 class="contact-hero__title">Contact</h1>
+    <p class="contact-hero__sub">Share a story, ask a question, or simply say hello</p>
+  </header>
+
+  <section class="contact-body">
+    <div class="contact-info">
+      <div class="contact-block">
+        <h3 class="contact-block__label">Email</h3>
+        <a href="mailto:hello@weirdwanderer.in" class="contact-block__value">hello@weirdwanderer.in</a>
+      </div>
+      <div class="contact-block">
+        <h3 class="contact-block__label">Response Time</h3>
+        <p class="contact-block__value">I read every message between journeys. Expect a reply when the signal allows.
+        </p>
+      </div>
+    </div>
+
+    <form class="contact-form" id="contact-form" action="#" method="POST">
+      <div class="form-group">
+        <label for="name" class="form-label">Your Name</label>
+        <input type="text" id="name" name="name" class="form-input" placeholder="e.g. Isadora Wing" required>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="email" class="form-input" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label for="interest" class="form-label">I'm Interested In</label>
+        <select id="interest" name="interest" class="form-input form-select">
+          <option value="" disabled selected>Select an option</option>
+          <option value="story">Submitting a story</option>
+          <option value="collaboration">Collaboration</option>
+          <option value="other">Something else entirely</option>
+        </select>
+      </div>
+      <div class="form-group form-group--full">
+        <label for="message" class="form-label">Your Message</label>
+        <textarea id="message" name="message" class="form-input form-textarea"
+          placeholder="Tell us where you want to go, what you're looking for, and what you'd like to discover…" rows="6"
+          required></textarea>
+      </div>
+      <button type="submit" class="form-submit" id="form-submit">
+        <span class="form-submit__text">Send Message</span>
+        <span class="form-submit__sent">✓ Message Sent</span>
+      </button>
+    </form>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('burger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('open');
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = document.getElementById('form-submit');
+      btn.classList.add('sent');
+      setTimeout(() => { btn.classList.remove('sent'); }, 3000);
+    });
+  </script>
+  <script src="/js/climate.js"></script>
+</body>
+
+</html>

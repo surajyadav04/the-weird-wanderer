@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Journal — The Weird Wanderer</title>
+  <meta name="description" content="A visual journal — photographs that speak louder than dispatches.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/photos.css">
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html" class="nav__active">Photos</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <header class="photo-hero">
+    <p class="photo-hero__label">Visual dispatches</p>
+    <h1 class="photo-hero__title">Photo Journal</h1>
+    <p class="photo-hero__sub">A photograph is a dispatched memory</p>
+  </header>
+
+  <section class="masonry" id="masonry"></section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" id="lb-close">✕</button>
+    <div class="lightbox__img" id="lb-img"></div>
+    <div class="lightbox__info">
+      <h2 class="lightbox__title" id="lb-title"></h2>
+      <p class="lightbox__dest" id="lb-dest"></p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/data.js"></script>
+  <script>
+    const masonry = document.getElementById('masonry');
+    masonry.innerHTML = PHOTOS.map(p => {
+      const dest = getDestination(p.destination);
+      return `
+        <div class="photo-card photo-card--${p.aspect}" data-id="${p.id}" data-title="${p.title}" data-dest="${dest.name}">
+          <div class="photo-card__img" style="background:${p.gradient}"></div>
+          <div class="photo-card__overlay">
+            <h3 class="photo-card__title">${p.title}</h3>
+            <span class="photo-card__dest">${dest.name}</span>
+          </div>
+        </div>`;
+    }).join('');
+
+    // Lightbox
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lb-img');
+    const lbTitle = document.getElementById('lb-title');
+    const lbDest = document.getElementById('lb-dest');
+
+    masonry.addEventListener('click', e => {
+      const card = e.target.closest('.photo-card');
+      if (!card) return;
+      const photo = PHOTOS.find(p => p.id === card.dataset.id);
+      lbImg.style.background = photo.gradient;
+      lbTitle.textContent = card.dataset.title;
+      lbDest.textContent = card.dataset.dest;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+    document.getElementById('lb-close').addEventListener('click', () => {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+    lb.addEventListener('click', e => {
+      if (e.target === lb) { lb.classList.remove('open'); document.body.style.overflow = ''; }
+    });
+
+    document.getElementById('burger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('open');
+    });
+  </script>
+  <script src="/js/climate.js"></script>
+</body>
+
+</html>

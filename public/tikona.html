@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Pyramid of Maval — Tikona Fort — The Weird Wanderer</title>
+    <meta name="description"
+        content="Ascending the near-vertical stone steps of Vitandgad to witness the Pawana valley draped in morning mist. A dispatch from the Maratha heartland." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+        rel="stylesheet" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="story.css" />
+    <link rel="stylesheet" href="css/gallery.css" />
+    <link rel="stylesheet" href="css/circular-gallery.css" />
+    <link rel="stylesheet" href="css/image-reveal.css" />
+    
+    <!-- Smooth Scroll (Lenis) -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+</head>
+
+<body>
+
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Reading progress -->
+    <div class="story-progress" id="readingProgress" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav__wordmark" aria-label="The Weird Wanderer — home">The Weird Wanderer</a>
+        <div class="nav__links">
+            <a href="index.html#journeys">Journeys</a>
+            <a href="index.html#manifesto">Manifesto</a>
+            <a href="index.html#words">Words</a>
+            <a href="index.html" class="nav__enter">← Back</a>
+            <!-- Climate Selector -->
+            <div class="nav__climate">
+                <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+                    <span class="nav__climate-label">Climate</span>
+                    <span id="climateIcon" class="nav__climate-icon">⠿</span>
+                    <span id="climateStatus" class="nav__climate-status">Clear</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ── Story Hero ─────────────────────────────────────────── -->
+    <header class="story-hero" aria-label="Dispatch header">
+
+        <div class="story-hero__bg" id="heroBg">
+            <div
+                style="position:absolute;inset:0;background-image: url('assets/tikona-cover.jpg'); background-size: cover; background-position: center; width:100%; height:100%; opacity: 0.6;">
+            </div>
+            <div
+                style="position:absolute;inset:0;background: linear-gradient(to bottom, transparent, #0d0c0b); width:100%; height:100%;">
+            </div>
+        </div>
+
+        <div class="story-hero__particles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+        <div class="story-hero__vignette" aria-hidden="true"></div>
+        <span class="story-hero__open-word" id="openWord" aria-hidden="true">तिकोना</span>
+
+        <div class="story-hero__content">
+            <span class="story-hero__label" id="heroLabel">
+                India · Maharashtra · <a href="https://www.google.com/maps/search/?api=1&query=18.6,73.5" target="_blank" rel="noopener" class="coord-link">18.6° N, 73.5° E</a>
+            </span>
+            <h1 class="story-hero__title" id="heroTitle">
+                <span class="hero-word">The </span>
+                <span class="hero-word">Pyramid </span>
+                <span class="hero-word">of </span>
+                <span class="hero-word"><em>Maval</em></span>
+            </h1>
+            <div class="story-hero__meta">
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Written by</span>
+                    <span class="story-meta__val">The Weird Wanderer</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Published</span>
+                    <span class="story-meta__val" id="publishDate">November 29, 2025</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Reading time</span>
+                    <span class="story-meta__val" id="readTime">10 minutes</span>
+                </div>
+                <div class="story-hero__meta-item">
+                    <span class="story-meta__key">Dispatch no.</span>
+                    <span class="story-meta__val" id="dispatchNo">№ 53</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story-hero__scroll-hint" aria-hidden="true">
+            <span>Scroll</span>
+            <div class="story-hero__scroll-line"></div>
+        </div>
+
+        <!-- Gallery + Travelers Trigger (Stacked) -->
+        <div class="story-hero__gallery-trigger" style="display: flex; flex-direction: column; gap: 1rem; align-items: flex-end;">
+            <button id="openTravelers" class="gallery-btn">
+                <span class="gallery-btn__icon">✦</span>
+                <span class="gallery-btn__label">Travelers</span>
+            </button>
+            <button id="openGallery" class="gallery-btn">
+                <span class="gallery-btn__icon">▤</span>
+                <span class="gallery-btn__label">View Gallery</span>
+            </button>
+        </div>
+
+    </header>
+
+    <main id="story-main" role="main" aria-label="Story content">
+
+        <section class="story-section">
+            <p class="story-p story-dropcap" data-scroll>
+                They call it Tikona, the triangle, a geometric anomaly rising sharply from the Maval plains. To the Marathas, it was Vitandgad—a watchful eye over the Pawana valley. We began our ascent when the dew was still heavy on the grass, the trail winding through the base village of Tikonapeth, where life moves at the pace of the seasons.
+            </p>
+
+            <div class="story-image-portrait" style="max-width: 650px; margin: 8rem auto; position: relative;" data-scroll>
+                <div style="position: absolute; inset: 0; box-shadow: inset 0 0 100px 20px #0d0c0b; z-index: 2; pointer-events: none; border-radius: 4px;"></div>
+                <img src="assets/tikona-bench.jpg" style="width: 100%; height: auto; border-radius: 4px; display: block; filter: contrast(1.05) saturate(1.1);"
+                    alt="A lone bench overlooking the Pawana valley at Tikona Fort">
+                <p class="story-caption" style="text-align: center; margin-top: 2rem; opacity: 0.7; font-style: italic;">A moment of quiet reflection—the lone bench overlooking the sun-drenched valley.</p>
+            </div>
+
+            <blockquote class="story-pull" data-scroll>
+                "Some forts are built to defend land; others are built to touch the sky. Tikona does both with a silent, stony grace."
+            </blockquote>
+
+            <p class="story-p" data-scroll>
+                The climb is more than a physical effort; it is a negotiation with history. You pass through massive gates that have stood since the 17th century, their hinges long gone but their authority intact. The Satvahan caves, carved into the cliffside, offer a momentary cool reprieve—a reminder that monks sought solitude here centuries before the first Maratha flag was ever hoisted.
+            </p>
+
+            <div class="story-image-full" style="height: 70vh; margin: 6rem 0;" data-scroll>
+                <img src="assets/tikona-cover.jpg" style="width: 100%; height: 100%; object-fit: cover;"
+                    alt="The pyramid-shaped summit of Tikona Fort">
+                <p class="story-caption">The near-vertical stone steps leading to the upper ramparts.</p>
+            </div>
+
+            <p class="story-p" data-scroll>
+                And then, the steps. Narrow, steep, and carved directly into the basalt, they force you into a rhythmic, prayer-like crawl. At the summit, beside the ancient Trimbakeshwar Mahadev temple, the world opens up. The Pawana lake shimmers like a fallen silver coin, and the surrounding forts—Lohagad, Visapur, Tung—stand like sentinels in the distance.
+            </p>
+
+            <p class="story-p" data-scroll>
+                Tikona doesn't boast the size of Raigad or the complexity of Janjira. Its beauty lies in its simplicity—a perfect pyramid of rock, a sanctuary of wind and stone, and a testament to a time when the mountains were the greatest allies of a budding empire.
+            </p>
+
+            <div class="story-image-immersive" style="margin: 8rem 0; position: relative;" data-scroll>
+                <div style="position: absolute; inset: 0; box-shadow: inset 0 0 100px 20px #0d0c0b; z-index: 2; pointer-events: none;"></div>
+                <img src="assets/tikona/kamshet-sunset.jpg" 
+                    style="width: 100%; height: auto; max-height: 90vh; display: block; filter: contrast(1.05) saturate(1.1); -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent); mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);"
+                    alt="Sunset at Kamshet">
+                <p class="story-caption" style="text-align: center; margin-top: 2rem; opacity: 0.7; font-style: italic;">The magic hour at Kamshet—where the sky meets the tracks in a blaze of gold.</p>
+            </div>
+
+            <p class="story-p" data-scroll>
+                Waiting for the sun to dip below the horizon at Kamshet was a lesson in patience. The sky transformed from a pale blue to a burning orange, casting long, dramatic shadows. It was in that moment of absolute stillness that the essence of the journey truly sank in.
+            </p>
+
+            <blockquote class="story-quote" data-scroll>
+                "The sunset took all the pain and gave a hope for a new day"
+            </blockquote>
+        </section>
+
+    </main>
+
+    <aside class="story-end" id="storyEnd" aria-label="End of dispatch">
+        <div class="story-end__coords" data-scroll>
+            <a href="https://www.google.com/maps/search/?api=1&query=18.63,73.51" target="_blank" rel="noopener" class="coord-link">18.63° N · 73.51° E</a> · Maharashtra, India
+        </div>
+        <div class="story-end__divider" data-scroll></div>
+        <div class="story-end__next-label" data-scroll>Exploring the Western Ghats</div>
+    </aside>
+
+    <!-- ── THE ONE AND ONLY Cinematic Ending (Phrase by Phrase Reveal) ── -->
+    <section class="story-ending-reveal" id="endingRevealSection">
+        <div class="ending-reveal-container">
+            <div class="ending-reveal__part-wrap"><span class="ending-part">One More journey,</span></div>
+            <div class="ending-reveal__part-wrap"><span class="ending-part">One More Story,</span></div>
+            <div class="ending-reveal__part-wrap"><span class="ending-part">Same Human,</span></div>
+            <div class="ending-reveal__part-wrap"><span class="ending-part">A new Experience.</span></div>
+        </div>
+    </section>
+
+    <!-- Travelers Modal (Image Reveal Hover) -->
+    <div id="travelersModal" class="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="tm-title">
+        <header class="gallery-modal__header">
+            <h2 id="tm-title" class="gallery-modal__title">Tikona Dispatch · The Travelers</h2>
+            <button id="closeTravelers" class="gallery-modal__close">✕ Close</button>
+        </header>
+
+        <main class="gallery-modal__content traveler-reveal-content">
+            <div id="flyingPosters" class="flying-posters-wrap"></div>
+        </main>
+    </div>
+
+    <!-- Gallery Modal -->
+    <div id="galleryModal" class="gallery-modal" role="dialog" aria-modal="true" aria-labelledby="gm-title">
+        <header class="gallery-modal__header">
+            <h2 id="gm-title" class="gallery-modal__title">Tikona Dispatch · Gallery</h2>
+            <button id="closeGallery" class="gallery-modal__close">✕ Close</button>
+        </header>
+
+        <main class="gallery-modal__content">
+            <div id="mediaContainer" class="gallery-modal__media-wrap">
+                <!-- Circular Gallery injected here -->
+            </div>
+        </main>
+
+        <footer class="gallery-modal__footer">
+            <p class="gallery-modal__hint">Drag or use mouse wheel to explore the wheel</p>
+        </footer>
+    </div>
+
+    <button class="back-to-top" id="backToTop" aria-label="Back to top" title="Back to top">↑</button>
+
+    <footer class="site-footer" role="contentinfo">
+        <div class="site-footer__inner">
+            <div>
+                <div class="site-footer__wordmark-container">
+                    <span class="site-footer__wordmark">The Weird Wanderer</span>
+                    <div class="brand-meanings">
+                        <span class="meaning hindi">अजीब मुसाफ़िर</span>
+                        <span class="meaning urdu">عجیب مسافر</span>
+                        <span class="meaning english">The Weird Wanderer</span>
+                    </div>
+                </div>
+                <div class="site-footer__tagline">A journal of slow travel · Est. 2015</div>
+            </div>
+            <div></div>
+            <div>
+                <div class="label" style="margin-bottom:0.4rem;">Dispatch no.</div>
+                <div class="site-footer__coords">
+                    <a href="https://www.google.com/maps/search/?api=1&query=18.6,73.5" target="_blank" rel="noopener" class="coord-link">18.6° N · 73.5° E</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="/js/data.js"></script>
+    <script src="/js/circularGallery.js"></script>
+    <script src="/js/imageReveal.js"></script>
+    <script src="/main.js"></script>
+    <script src="/js/flyingPosters.js"></script>
+    <script>
+        (function () {
+            'use strict';
+            const destId = 'tikona';
+            
+            // Travelers Modal Trigger — init FlyingPosters AFTER modal is visible
+            let fpInstance = null;
+            document.getElementById('openTravelers')?.addEventListener('click', () => {
+                const modal = document.getElementById('travelersModal');
+                modal.classList.add('is-open');
+                // Only init once, and only after the modal is visible
+                if (!fpInstance) {
+                    const travelers = getTravelersFor(destId);
+                    const fpContainer = document.getElementById('flyingPosters');
+                    if (fpContainer && travelers && travelers.length) {
+                        // Small delay to ensure CSS display:flex is applied
+                        setTimeout(() => {
+                            fpInstance = new FlyingPosters(fpContainer, { items: travelers });
+                        }, 50);
+                    }
+                }
+            });
+            document.getElementById('closeTravelers')?.addEventListener('click', () => {
+                document.getElementById('travelersModal').classList.remove('is-open');
+            });
+
+            // Cinematic Ending Reveal (Pinned & Sequential)
+            const endingParts = document.querySelectorAll('.ending-part');
+            const endingSection = document.getElementById('endingRevealSection');
+            
+            if (endingSection && endingParts.length) {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: endingSection,
+                        start: 'top top',
+                        end: '+=300%', // More scroll distance for "One by One" feel
+                        pin: true,
+                        scrub: 1,
+                        anticipatePin: 1
+                    }
+                });
+
+                endingParts.forEach((part, i) => {
+                    tl.from(part, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 1,
+                        ease: 'power2.out'
+                    }, i > 0 ? '+=0.5' : 0); // Stagger them on scroll
+                    
+                    // Keep them visible after reveal, or dim previous ones? 
+                    // User said "One per scroll", so let's keep them visible but reveal one by one.
+                });
+            }
+
+            // Reading progress and parallax logic (kept same)
+            const bar = document.getElementById('readingProgress');
+            const main = document.getElementById('story-main');
+            let currentProgress = 0, targetProgress = 0;
+            if (bar && main) {
+                const updateTarget = () => {
+                    const rect = main.getBoundingClientRect();
+                    const total = main.offsetHeight - window.innerHeight;
+                    const scrolled = Math.max(0, -rect.top);
+                    targetProgress = Math.min(1, scrolled / total);
+                };
+                const lerp = (a, b, t) => a + (b - a) * t;
+                const animate = () => {
+                    currentProgress = lerp(currentProgress, targetProgress, 0.08);
+                    if (Math.abs(currentProgress - targetProgress) > 0.0001) bar.style.transform = `scaleX(${currentProgress})`;
+                    requestAnimationFrame(animate);
+                };
+                window.addEventListener('scroll', updateTarget, { passive: true });
+                updateTarget(); animate();
+            }
+            const scrollEls = document.querySelectorAll('[data-scroll]');
+            if (scrollEls.length) {
+                const revealIO = new IntersectionObserver((entries) => {
+                    entries.forEach(e => {
+                        if (e.isIntersecting) {
+                            const siblings = e.target.parentElement.querySelectorAll('[data-scroll]');
+                            let sibIdx = Array.from(siblings).indexOf(e.target);
+                            if (sibIdx < 0) sibIdx = 0;
+                            e.target.style.transitionDelay = (sibIdx * 0.08) + 's';
+                            e.target.classList.add('is-visible');
+                            revealIO.unobserve(e.target);
+                        }
+                    });
+                }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+                scrollEls.forEach(el => revealIO.observe(el));
+            }
+
+            const btt = document.getElementById('backToTop');
+            if (btt) {
+                const heroH = document.querySelector('.story-hero')?.offsetHeight || 600;
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > heroH) btt.classList.add('is-visible');
+                    else btt.classList.remove('is-visible');
+                }, { passive: true });
+                btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+            }
+        })();
+
+        // ── Gallery Logic ──
+        (function() {
+            const destId = 'tikona';
+            const photos = getPhotosFor(destId);
+            const modal = document.getElementById('galleryModal');
+            const openBtn = document.getElementById('openGallery');
+            const closeBtn = document.getElementById('closeGallery');
+            const container = document.getElementById('mediaContainer');
+
+            if (!modal || !openBtn || !container) return;
+
+            // Initialize Circular Gallery
+            const gallery = new CircularGallery(container, photos);
+
+            openBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('is-open'), 10);
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('is-open');
+                setTimeout(() => modal.style.display = 'none', 600);
+                document.body.style.overflow = '';
+                gallery.stop();
+            });
+        })();
+
+        // ── Travelers Modal Logic ──
+        (function() {
+            const modal = document.getElementById('travelersModal');
+            const openBtn = document.getElementById('openTravelers');
+            const closeBtn = document.getElementById('closeTravelers');
+
+            if (!modal || !openBtn) return;
+
+            openBtn.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                setTimeout(() => modal.classList.add('is-open'), 10);
+                document.body.style.overflow = 'hidden';
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('is-open');
+                setTimeout(() => modal.style.display = 'none', 600);
+                document.body.style.overflow = '';
+            });
+        })();
+    </script>
+    <script src="/js/climate.js"></script>
+</body>
+
+</html>

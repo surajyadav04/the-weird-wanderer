@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>World Map — The Weird Wanderer</title>
+  <meta name="description" content="Explore The Weird Wanderer destinations in India on an interactive map.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/map.css">
+</head>
+
+<body>
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="map.html" class="nav__active">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <header class="map-hero">
+    <p class="map-hero__label">Navigate by curiosity</p>
+    <h1 class="map-hero__title">The Map</h1>
+    <p class="map-hero__sub">Every pin is an invitation</p>
+  </header>
+
+  <section class="map-container">
+    <div class="world-map" id="world-map">
+      <svg viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg" class="map-svg">
+        <!-- Simplified world outline -->
+        <path
+          d="M280,120 Q320,100 360,110 Q400,90 440,100 Q480,95 520,105 Q560,100 580,115 Q600,120 620,130 Q640,125 660,135 Q680,140 700,138 Q720,142 740,150 Q760,155 780,160 Q800,165 820,175 Q840,180 860,185 Q880,190 900,195 Q920,200 940,210 L940,220 Q920,225 900,230 Q880,235 860,240 L820,250 L780,245 Q760,240 740,235 Q720,230 700,225 Q680,220 660,215 Q640,210 620,208 Q600,205 580,200 Q560,195 540,192 Q520,190 500,188 Q480,185 460,182 Q440,180 420,175 Q400,170 380,165 Q360,160 340,155 Q320,145 300,140 Q280,135 280,120 Z"
+          fill="rgba(200,169,110,0.08)" stroke="rgba(200,169,110,0.2)" stroke-width="0.5" />
+        <!-- Africa -->
+        <path
+          d="M520,250 Q540,240 560,235 Q580,232 600,235 Q620,238 640,245 Q650,250 655,260 Q660,270 658,285 Q655,300 650,320 Q645,340 635,355 Q625,370 615,380 Q605,385 595,388 Q585,385 575,380 Q565,370 558,355 Q552,340 548,325 Q545,310 542,295 Q540,280 535,268 Q530,258 520,250 Z"
+          fill="rgba(200,169,110,0.06)" stroke="rgba(200,169,110,0.2)" stroke-width="0.5" />
+        <!-- South America -->
+        <path
+          d="M330,310 Q345,295 360,290 Q370,288 378,295 Q385,305 388,320 Q390,335 388,350 Q385,370 380,390 Q375,410 368,425 Q360,440 350,450 Q340,458 332,460 Q325,455 320,445 Q315,430 312,415 Q310,400 308,385 Q307,370 308,355 Q310,340 315,328 Q320,318 330,310 Z"
+          fill="rgba(200,169,110,0.06)" stroke="rgba(200,169,110,0.2)" stroke-width="0.5" />
+        <!-- Asia -->
+        <path
+          d="M700,140 Q730,130 760,125 Q800,118 840,115 Q870,112 900,115 Q930,120 950,130 Q960,140 965,155 Q968,170 965,185 Q960,200 952,215 Q940,228 925,235 Q910,240 895,242 Q880,240 865,235 Q850,228 835,220 Q820,212 805,205 Q790,198 775,192 Q760,188 745,182 Q730,176 718,168 Q708,160 700,148 L700,140 Z"
+          fill="rgba(200,169,110,0.06)" stroke="rgba(200,169,110,0.2)" stroke-width="0.5" />
+        <!-- Europe -->
+        <path
+          d="M520,105 Q535,98 550,100 Q570,102 585,108 Q598,115 608,125 Q615,132 618,142 Q620,150 615,158 Q608,165 598,168 Q585,170 572,168 Q560,165 548,160 Q538,155 530,148 Q522,140 518,130 Q516,120 520,105 Z"
+          fill="rgba(200,169,110,0.06)" stroke="rgba(200,169,110,0.2)" stroke-width="0.5" />
+        <!-- Grid lines -->
+        <line x1="0" y1="300" x2="1200" y2="300" stroke="rgba(200,169,110,0.06)" stroke-width="0.5"
+          stroke-dasharray="4,8" />
+        <line x1="600" y1="0" x2="600" y2="600" stroke="rgba(200,169,110,0.06)" stroke-width="0.5"
+          stroke-dasharray="4,8" />
+        <line x1="0" y1="150" x2="1200" y2="150" stroke="rgba(200,169,110,0.04)" stroke-width="0.5"
+          stroke-dasharray="4,8" />
+        <line x1="0" y1="450" x2="1200" y2="450" stroke="rgba(200,169,110,0.04)" stroke-width="0.5"
+          stroke-dasharray="4,8" />
+        <line x1="300" y1="0" x2="300" y2="600" stroke="rgba(200,169,110,0.04)" stroke-width="0.5"
+          stroke-dasharray="4,8" />
+        <line x1="900" y1="0" x2="900" y2="600" stroke="rgba(200,169,110,0.04)" stroke-width="0.5"
+          stroke-dasharray="4,8" />
+      </svg>
+      <!-- Map pins will be injected here by JS -->
+      <div class="map-pins" id="map-pins"></div>
+    </div>
+  </section>
+
+  <!-- Destination sidebar -->
+  <section class="map-sidebar" id="map-sidebar">
+    <h3 class="map-sidebar__title">All Destinations</h3>
+    <div class="map-sidebar__list" id="sidebar-list"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/data.js"></script>
+  <script>
+    // Map pin positions (approximate x,y percentages)
+    const PIN_POSITIONS = {
+      kutch: { x: 63, y: 44 }
+    };
+
+    const pinsEl = document.getElementById('map-pins');
+    const sidebar = document.getElementById('sidebar-list');
+
+    DESTINATIONS.forEach(d => {
+      const pos = PIN_POSITIONS[d.id];
+      if (!pos) return;
+      // Pin on map
+      pinsEl.innerHTML += `
+        <a href="destinations.html" class="map-pin" style="left:${pos.x}%;top:${pos.y}%"
+           data-id="${d.id}">
+          <span class="map-pin__dot" style="background:${d.color}"></span>
+          <span class="map-pin__label">${d.name}</span>
+        </a>`;
+    });
+
+    // Sidebar list
+    sidebar.innerHTML = DESTINATIONS.map(d => `
+      <a href="destinations.html" class="sidebar-item">
+        <span class="sidebar-item__dot" style="background:${d.color}"></span>
+        <div class="sidebar-item__info">
+          <span class="sidebar-item__name">${d.name}</span>
+          <span class="sidebar-item__region">${d.region}</span>
+        </div>
+        <span class="sidebar-item__stories">${d.storyCount} stories</span>
+      </a>
+    `).join('');
+
+    document.getElementById('burger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('open');
+    });
+  </script>
+  <script src="/js/climate.js"></script>
+</body>
+
+</html>

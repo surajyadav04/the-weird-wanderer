@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Stories — The Weird Wanderer</title>
+  <meta name="description" content="Literary dispatches from the field — stories of culture, adventure, and solitude.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Lora:ital,wght@0,400;1,400&family=Space+Mono&family=Noto+Sans+Devanagari&family=Noto+Nastaliq+Urdu:wght@400&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/stories.css">
+</head>
+
+<body>
+  <!-- ── Nav ──────────────────────────────────────── -->
+  <nav class="nav" id="nav">
+    <a href="index.html" class="nav__wordmark">The Weird Wanderer</a>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="destinations.html">Destinations</a></li>
+      <li><a href="stories.html" class="nav__active">Stories</a></li>
+      <li><a href="photos.html">Photos</a></li>
+      <li><a href="map.html">Map</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <!-- Climate Selector -->
+      <li class="nav__climate">
+        <button id="climateToggle" class="nav__climate-btn" aria-label="Cycle Climate">
+          <span class="nav__climate-label">Climate</span>
+          <span id="climateIcon" class="nav__climate-icon">⠿</span>
+          <span id="climateStatus" class="nav__climate-status">Clear</span>
+        </button>
+      </li>
+    </ul>
+    <button class="nav__burger" id="burger" aria-label="Toggle menu">☰</button>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────────── -->
+  <header class="stories-hero">
+    <p class="stories-hero__label">Dispatches from the field</p>
+    <h1 class="stories-hero__title">Travel Stories</h1>
+    <p class="stories-hero__sub">Long-form writing from the places that changed us</p>
+  </header>
+
+  <!-- ── Category Tabs ────────────────────────────── -->
+  <section class="tabs" id="tabs">
+    <button class="tab active" data-cat="all">All</button>
+    <button class="tab" data-cat="culture">Culture</button>
+    <button class="tab" data-cat="solo">Solo</button>
+  </section>
+
+  <!-- ── Story List ───────────────────────────────── -->
+  <section class="story-list" id="story-list"></section>
+
+  <!-- ── Footer ───────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="site-footer__wordmark-container">
+          <span class="footer__wordmark">The Weird Wanderer</span>
+          <div class="brand-meanings">
+            <span class="meaning hindi">अजीब मुसाफ़िर</span>
+            <span class="meaning urdu">عجیب مسافر</span>
+            <span class="meaning english">The Weird Wanderer</span>
+          </div>
+        </div>
+        <p class="footer__tagline">A storyteller's journal from India</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="destinations.html">Destinations</a>
+        <a href="stories.html">Stories</a>
+        <a href="photos.html">Photos</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer__copy">© 2026 The Weird Wanderer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="/js/data.js"></script>
+  <script>
+    const list = document.getElementById('story-list');
+    function renderStories(cat) {
+      const items = cat === 'all' ? STORIES : getCategoryStories(cat);
+      list.innerHTML = items.map(s => {
+        const dest = getDestination(s.destination);
+        const url = s.storyUrl || 'journey.html';
+        return `
+          <a href="${url}" class="story-card">
+            <div class="story-card__left">
+              <span class="story-card__dispatch">${s.dispatch}</span>
+              <span class="story-card__date">${new Date(s.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+            </div>
+            <div class="story-card__body">
+              <div class="story-card__top">
+                <span class="story-card__cat">${s.category}</span>
+                <span class="story-card__dest" style="color:${dest.color}">${dest.name}</span>
+              </div>
+              <h2 class="story-card__title">${s.title}</h2>
+              <p class="story-card__excerpt">${s.excerpt}</p>
+              <div class="story-card__footer">
+                <span class="story-card__author">${s.author}</span>
+                <span class="story-card__time">${s.readTime} read</span>
+              </div>
+            </div>
+          </a>`;
+      }).join('');
+    }
+    renderStories('all');
+
+    document.querySelectorAll('.tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.tab.active').classList.remove('active');
+        btn.classList.add('active');
+        renderStories(btn.dataset.cat);
+      });
+    });
+
+    document.getElementById('burger').addEventListener('click', () => {
+      document.querySelector('.nav__links').classList.toggle('open');
+    });
+  </script>
+  <script src="/js/climate.js"></script>
+</body>
+
+</html>
